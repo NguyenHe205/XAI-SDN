@@ -1,0 +1,322 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-27T17:24:03"
+  },
+  "experiment": "E4+E7+E8",
+  "objective": "controller-in-the-loop OpenFlow 1.3 testbed",
+  "platform": {
+    "controller": "custom OpenFlow 1.3 controller process using the os-ken protocol stack, with the detector embedded in-process",
+    "switches": "software switch agents over real TCP sockets",
+    "why_not_mininet": "Mininet, ONOS and Docker require hardware virtualization, which is disabled in firmware on the evaluation machine (WSL2 reports 'virtualization is not enabled on this machine')",
+    "honesty_note": "this is a control-plane testbed with emulated switch agents; it is not a data-plane emulation and is not described as Mininet anywhere in the manuscript"
+  },
+  "tau": 0.7,
+  "protocol_conformance": {
+    "OFPT_HELLO": "OFPHello",
+    "OFPT_FEATURES_REPLY": "OFPSwitchFeatures",
+    "OFPT_PACKET_IN": "OFPPacketIn",
+    "OFPT_FLOW_MOD": "OFPFlowMod",
+    "OFPT_PACKET_OUT": "header-valid(type=13)",
+    "OFPT_ECHO_REPLY": "OFPEchoReply"
+  },
+  "deployment_model": {
+    "train_flows": 600000,
+    "rationale": "the deployment model is fitted on a temporally-coherent tail of the training partition so that the serialised forest is small enough to load inside a controller process; the size is reported rather than hidden",
+    "serialised_bytes": 171674,
+    "load_seconds": 0.17
+  },
+  "E4": {
+    "detection_only": {
+      "tag": "detection_only",
+      "status": "ok",
+      "listen_port": 60851,
+      "explanations_enabled": false,
+      "offered_rate_per_s": 3000,
+      "wall_seconds": 150.07,
+      "controller": {
+        "packet_in": 4182,
+        "flow_mod": 2120,
+        "packet_out": 2062,
+        "alerts": 2120,
+        "explanations": 0,
+        "bytes_in": 1614332,
+        "bytes_out": 218176,
+        "decide_ms": {
+          "p50": 65.59835,
+          "p95": 110.11891499999999,
+          "p99": 140.02359399999995,
+          "mean": 67.96977673362026
+        },
+        "flowmod_ms": {
+          "p50": 1.3258,
+          "p95": 6.038009999999998,
+          "mean": 2.015615638450502
+        }
+      },
+      "controller_cpu_percent": {
+        "mean": 103.8120353982301,
+        "p95": 117.67999999999999,
+        "max": 133.6
+      },
+      "controller_rss_gb": {
+        "mean": 0.18183132610489836,
+        "max": 0.18195724487304688
+      },
+      "n_samples": 565,
+      "agents": {
+        "attack_handshake": true,
+        "background_handshake": true,
+        "attack_sent": 2114,
+        "attack_offered": 40000,
+        "attack_stopped_at_time_budget": true,
+        "attack_elapsed_s": 150.04276889999164,
+        "attack_achieved_rate": 14.089316102990937,
+        "attack_rtt_ms": {
+          "p50": 67.86180000926834,
+          "p95": 115.77685999363892,
+          "p99": 145.23290199751492,
+          "mean": 70.93251102186882,
+          "max": 477.14939998695627
+        },
+        "background_sent": 2068,
+        "background_offered": 4000,
+        "background_stopped_at_time_budget": true,
+        "background_elapsed_s": 150.0550826000108,
+        "background_achieved_rate": 13.781605822126624,
+        "background_rtt_ms": {
+          "p50": 70.28205000096932,
+          "p95": 114.94804999820187,
+          "p99": 147.50303699111097,
+          "mean": 72.51669700207154,
+          "max": 491.5469999832567
+        }
+      },
+      "control_channel": {
+        "packet_in_per_s": 27.9,
+        "bytes_in_per_s": 10757.4,
+        "bytes_out_per_s": 1453.9,
+        "bytes_per_packet_in": 386.0
+      }
+    },
+    "with_explanations": {
+      "tag": "with_explanations",
+      "status": "ok",
+      "listen_port": 54175,
+      "explanations_enabled": true,
+      "offered_rate_per_s": 3000,
+      "wall_seconds": 150.01,
+      "controller": {
+        "packet_in": 4327,
+        "flow_mod": 2227,
+        "packet_out": 2100,
+        "alerts": 2227,
+        "explanations": 2227,
+        "bytes_in": 1670302,
+        "bytes_out": 226544,
+        "decide_ms": {
+          "p50": 63.9782,
+          "p95": 105.26993999999999,
+          "p99": 126.48819999999999,
+          "mean": 64.56303316385487
+        },
+        "flowmod_ms": {
+          "p50": 2.5154,
+          "p95": 7.332969999999996,
+          "mean": 2.9964974347122717
+        }
+      },
+      "controller_cpu_percent": {
+        "mean": 103.99858657243816,
+        "p95": 118.07499999999999,
+        "max": 136.4
+      },
+      "controller_rss_gb": {
+        "mean": 0.2400158858551996,
+        "max": 0.24019622802734375
+      },
+      "n_samples": 566,
+      "agents": {
+        "attack_handshake": true,
+        "background_handshake": true,
+        "attack_sent": 2221,
+        "attack_offered": 40000,
+        "attack_stopped_at_time_budget": true,
+        "attack_elapsed_s": 150.00036309999996,
+        "attack_achieved_rate": 14.806630824748988,
+        "attack_rtt_ms": {
+          "p50": 66.78629998350516,
+          "p95": 107.8230999992229,
+          "p99": 128.76310001011015,
+          "mean": 67.49514142256128,
+          "max": 320.1788000005763
+        },
+        "background_sent": 2106,
+        "background_offered": 4000,
+        "background_stopped_at_time_budget": true,
+        "background_elapsed_s": 150.00755959999515,
+        "background_achieved_rate": 14.03929245709873,
+        "background_rtt_ms": {
+          "p50": 70.1173999987077,
+          "p95": 112.40375000488712,
+          "p99": 136.07083498354757,
+          "mean": 71.18695755048606,
+          "max": 327.11459998972714
+        }
+      },
+      "control_channel": {
+        "packet_in_per_s": 28.8,
+        "bytes_in_per_s": 11134.3,
+        "bytes_out_per_s": 1510.1,
+        "bytes_per_packet_in": 386.0
+      }
+    },
+    "qos_impact_on_background_flows": {
+      "detection_only_rtt_ms": {
+        "p50": 70.28205000096932,
+        "p95": 114.94804999820187,
+        "p99": 147.50303699111097,
+        "mean": 72.51669700207154,
+        "max": 491.5469999832567
+      },
+      "with_explanations_rtt_ms": {
+        "p50": 70.1173999987077,
+        "p95": 112.40375000488712,
+        "p99": 136.07083498354757,
+        "mean": 71.18695755048606,
+        "max": 327.11459998972714
+      },
+      "p95_inflation_factor": 0.978,
+      "interpretation": "the background agent carries benign traffic through the same controller; the change in its round-trip time is the QoS cost that the security function imposes on unrelated flows"
+    }
+  },
+  "E7": {
+    "sweep": [
+      {
+        "offered_rate": 500,
+        "achieved_rate": 26.6,
+        "saturation_ratio": 0.0532,
+        "rtt_p50_ms": 34.91739998571575,
+        "rtt_p99_ms": 77.79804402380248,
+        "cpu_mean_percent": 93.52958579881657,
+        "cpu_max_percent": 104.2,
+        "bytes_in_per_s": 10266.6,
+        "bytes_out_per_s": 1702.3
+      },
+      {
+        "offered_rate": 1000,
+        "achieved_rate": 23.5,
+        "saturation_ratio": 0.0235,
+        "rtt_p50_ms": 38.49939999054186,
+        "rtt_p99_ms": 91.18977798003475,
+        "cpu_mean_percent": 91.41904761904762,
+        "cpu_max_percent": 105.5,
+        "bytes_in_per_s": 9063.9,
+        "bytes_out_per_s": 1502.8
+      },
+      {
+        "offered_rate": 2000,
+        "achieved_rate": 23.5,
+        "saturation_ratio": 0.0118,
+        "rtt_p50_ms": 39.22125000099186,
+        "rtt_p99_ms": 85.62071700493111,
+        "cpu_mean_percent": 92.87559523809524,
+        "cpu_max_percent": 105.1,
+        "bytes_in_per_s": 9073.9,
+        "bytes_out_per_s": 1504.5
+      },
+      {
+        "offered_rate": 4000,
+        "achieved_rate": 29.6,
+        "saturation_ratio": 0.0074,
+        "rtt_p50_ms": 33.144050001283176,
+        "rtt_p99_ms": 80.14182500133762,
+        "cpu_mean_percent": 92.41183431952663,
+        "cpu_max_percent": 104.8,
+        "bytes_in_per_s": 11429.2,
+        "bytes_out_per_s": 1895.0
+      },
+      {
+        "offered_rate": 8000,
+        "achieved_rate": 39.3,
+        "saturation_ratio": 0.0049,
+        "rtt_p50_ms": 25.750900007551536,
+        "rtt_p99_ms": 58.16467000229747,
+        "cpu_mean_percent": 94.50526315789475,
+        "cpu_max_percent": 107.5,
+        "bytes_in_per_s": 15151.2,
+        "bytes_out_per_s": 2512.2
+      },
+      {
+        "offered_rate": 16000,
+        "achieved_rate": 40.8,
+        "saturation_ratio": 0.0026,
+        "rtt_p50_ms": 24.176299979444593,
+        "rtt_p99_ms": 51.297515995101996,
+        "cpu_mean_percent": 94.57953216374268,
+        "cpu_max_percent": 104.3,
+        "bytes_in_per_s": 15748.8,
+        "bytes_out_per_s": 2611.2
+      },
+      {
+        "offered_rate": 32000,
+        "achieved_rate": 40.3,
+        "saturation_ratio": 0.0013,
+        "rtt_p50_ms": 24.792700001853518,
+        "rtt_p99_ms": 50.46481998200759,
+        "cpu_mean_percent": 94.63430232558139,
+        "cpu_max_percent": 104.8,
+        "bytes_in_per_s": 15538.9,
+        "bytes_out_per_s": 2576.4
+      }
+    ],
+    "achieved_rate_definition": "completed packet_in request/response exchanges per second of wall time for the synchronous switch agent, including classification and rule installation",
+    "sweep_session_seconds": 45,
+    "fixed_load_session_seconds": 150,
+    "sweep_has_background_agent": false,
+    "fixed_load_has_background_agent": true,
+    "saturated_at_every_offered_rate": true,
+    "lowest_offered_rate_tested": 500,
+    "knee_located": false,
+    "max_achieved_rate_sweep_per_s": 40.8,
+    "max_achieved_rate_any_session_per_s": 40.8,
+    "min_achieved_rate_any_session_per_s": 14.089316102990937,
+    "bytes_per_packet_in": 386.0,
+    "answer_to_60k_question": "Across every session measured here a single controller instance on this hardware absorbed between 14 and 41 packet_in events per second end to end, including classification and rule installation. The spread is a property of the session configuration, not of the offered rate: the sweep sessions run 45 s with no background traffic and the fixed-load sessions run 150 s with it, and the sweep is saturated at every offered rate tested, so it bounds goodput rather than locating the knee. The 60,606 flows/s figure in an offline measurement was an offline feature-and-inference rate measured without any control channel, and it is not an ingest rate; it is two to three orders of magnitude above anything measured here. Reaching that order of magnitude at the control plane requires the flows not to arrive as individual table-miss events: switch-side aggregation, packet_in rate limiting and sampled export are the mechanisms, and their cost is quantified in the flow-table analysis of E8b."
+  },
+  "flow_table_analysis": "see E8b_tcam_policy.json",
+  "total_runtime_s": 709.3
+}

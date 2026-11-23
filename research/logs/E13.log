@@ -1,0 +1,38 @@
+fitting detector...
+{
+  "n_test": 1077238,
+  "n_tp": 1044149,
+  "n_fp": 32,
+  "n_fn": 2657,
+  "n_tn": 30400
+}
+
+[true_positive] idx=0 score=1.0000 true=DDoS
+    H_src_ip                     value=             0 shap=+0.08863
+    H_dst_ip                     value=             0 shap=+0.08058
+    ACK_Flag_Count               value=             1 shap=+0.04623
+    Destination_Port             value=       2.3e+04 shap=+0.02943
+    Init_Win_bytes_forward       value=          5840 shap=+0.02774
+
+[false_positive] idx=1068380 score=0.8100 true=Benign
+    ACK_Flag_Count               value=             0 shap=-0.10125
+    H_src_port                   value=         7.972 shap=+0.05247
+    Init_Win_bytes_forward       value=            -1 shap=-0.04706
+    H_dst_ip                     value=          4.46 shap=-0.04424
+    H_src_ip                     value=         2.813 shap=-0.04349
+
+[false_negative] idx=1072225 score=0.1050 true=DDoS
+    ACK_Flag_Count               value=             0 shap=-0.08457
+    H_src_ip                     value=         2.918 shap=-0.06453
+    H_dst_ip                     value=         4.651 shap=-0.05761
+    Init_Win_bytes_forward       value=           235 shap=-0.05124
+    URG_Flag_Count               value=             1 shap=-0.04750
+
+[borderline] idx=1076664 score=0.7000 true=DDoS
+    ACK_Flag_Count               value=             0 shap=-0.10377
+    H_src_port                   value=         7.845 shap=+0.05819
+    Destination_Port             value=            53 shap=-0.05293
+    Init_Win_bytes_forward       value=            -1 shap=-0.05016
+    H_src_ip                     value=          2.68 shap=-0.04658
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E13_case_studies.json

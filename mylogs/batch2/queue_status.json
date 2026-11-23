@@ -1,0 +1,176 @@
+{
+  "E5": {
+    "status": "already-complete",
+    "started": "2026-09-21T01:57:29",
+    "script": "e5_leakage_audit.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E5.log",
+    "returncode": 0,
+    "runtime_s": 2529.0,
+    "finished": "2026-09-21T02:39:38"
+  },
+  "E12": {
+    "status": "done",
+    "started": "2026-10-26T14:29:24",
+    "script": "e12_pr_threshold.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E12.log",
+    "returncode": 0,
+    "runtime_s": 107.4,
+    "finished": "2026-10-26T14:31:12"
+  },
+  "E11": {
+    "status": "done",
+    "started": "2026-10-26T14:31:12",
+    "script": "e11_entropy_numerics.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E11.log",
+    "returncode": 0,
+    "runtime_s": 139.8,
+    "finished": "2026-10-26T14:33:31"
+  },
+  "E6": {
+    "status": "done",
+    "started": "2026-10-26T15:23:26",
+    "script": "e6_collinearity_shap_stability.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E6.log",
+    "returncode": 0,
+    "runtime_s": 734.4,
+    "finished": "2026-10-26T15:35:41"
+  },
+  "E15": {
+    "status": "already-complete",
+    "started": "2026-09-21T02:55:58",
+    "script": "e15_protocol.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E15.log",
+    "returncode": 0,
+    "runtime_s": 1240.7,
+    "finished": "2026-09-21T03:16:38"
+  },
+  "E13": {
+    "status": "done",
+    "started": "2026-10-26T14:33:31",
+    "script": "e13_case_studies.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E13.log",
+    "returncode": 0,
+    "runtime_s": 96.5,
+    "finished": "2026-10-26T14:35:08"
+  },
+  "E5b": {
+    "status": "already-complete",
+    "started": "2026-09-21T05:33:25",
+    "script": "e5b_duplicate_leakage.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E5b.log",
+    "returncode": 0,
+    "runtime_s": 65.9,
+    "finished": "2026-09-21T05:34:30"
+  },
+  "E17": {
+    "status": "done",
+    "started": "2026-10-26T14:45:21",
+    "script": "e17_entropy_contribution.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E17.log",
+    "returncode": 0,
+    "runtime_s": 2285.5,
+    "finished": "2026-10-26T15:23:26"
+  },
+  "E1": {
+    "status": "done",
+    "started": "2026-10-26T19:37:50",
+    "script": "e1_baselines_cpu.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E1.log",
+    "returncode": 0,
+    "runtime_s": 670.5,
+    "finished": "2026-10-26T19:49:01"
+  },
+  "E9": {
+    "status": "done",
+    "started": "2026-10-26T21:37:24",
+    "script": "e9_deep_baselines.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E9.log",
+    "returncode": 0,
+    "runtime_s": 423.0,
+    "finished": "2026-10-26T21:44:27"
+  },
+  "E14": {
+    "status": "done",
+    "started": "2026-10-26T21:44:27",
+    "script": "e14_roc_pr_curves.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E14.log",
+    "returncode": 0,
+    "runtime_s": 616.0,
+    "finished": "2026-10-26T21:54:43"
+  },
+  "E10": {
+    "status": "done",
+    "started": "2026-10-26T19:32:03",
+    "script": "e10_explanation_budget.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E10.log",
+    "returncode": 0,
+    "runtime_s": 271.9,
+    "finished": "2026-10-26T19:36:35"
+  },
+  "E3": {
+    "status": "already-complete",
+    "started": "2026-09-21T07:01:57",
+    "script": "e3_cross_vector.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E3.log",
+    "returncode": 0,
+    "runtime_s": 1461.7,
+    "finished": "2026-09-21T07:26:19"
+  },
+  "E2": {
+    "status": "already-complete",
+    "started": "2026-09-21T08:54:51",
+    "script": "e2_cross_dataset.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E2.log",
+    "returncode": 0,
+    "runtime_s": 428.0,
+    "finished": "2026-09-21T09:01:59"
+  },
+  "E4": {
+    "status": "already-complete",
+    "started": "2026-09-21T11:14:31",
+    "script": "e4_controller_testbed.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E4.log",
+    "returncode": 0,
+    "runtime_s": 672.2,
+    "finished": "2026-09-21T11:25:43"
+  },
+  "E8b": {
+    "status": "already-complete"
+  },
+  "E19": {
+    "status": "done",
+    "started": "2026-10-26T14:38:37",
+    "script": "e19_shap_sample.py",
+    "log": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\logs\\E19.log",
+    "returncode": 0,
+    "runtime_s": 94.9,
+    "finished": "2026-10-26T14:40:12"
+  },
+  "E20": {
+    "status": "already-complete",
+    "started": "2026-09-21T09:35:45",
+    "script": "e20_few_shot_transfer.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E20.log",
+    "returncode": 0,
+    "runtime_s": 363.7,
+    "finished": "2026-09-21T09:41:49"
+  },
+  "E21": {
+    "status": "already-complete",
+    "started": "2026-09-21T09:41:49",
+    "script": "e21_entropy_under_shift.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E21.log",
+    "returncode": 0,
+    "runtime_s": 559.2,
+    "finished": "2026-09-21T09:51:08"
+  },
+  "E22": {
+    "status": "done",
+    "started": "2026-09-21T11:45:29",
+    "script": "e22_model_size_pareto.py",
+    "log": "C:\\Users\\adeel\\OneDrive\\Desktop\\xai sdn full paper\\REVISION_2026\\08_logs\\E22.log",
+    "returncode": 0,
+    "runtime_s": 3190.9,
+    "finished": "2026-09-21T12:38:40"
+  }
+}

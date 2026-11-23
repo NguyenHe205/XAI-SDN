@@ -1,0 +1,106 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-26T23:15:21"
+  },
+  "experiment": "E21",
+  "objective": "value of the entropy augmentation under distribution shift",
+  "tau": 0.7,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "train_cap": 600000,
+  "test_cap": 400000,
+  "rationale": "E17 shows the augmentation does not help in distribution. This run asks whether it helps where a distributional summary should: across attack vectors, capture days and corpora.",
+  "feature_set_sizes": {
+    "full": 88,
+    "cic_only": 80,
+    "entropy_only": 8
+  },
+  "by_shift": {
+    "cross_dataset": {
+      "full_macro_f1_mean": 0.27118091571613706,
+      "cic_only_macro_f1_mean": 0.4122432785924359,
+      "entropy_helps": false,
+      "delta": -0.141062,
+      "per_set": {
+        "cic_only": {
+          "mean": 0.4122432785924359,
+          "std": 0.19456545587660168,
+          "n": 6
+        },
+        "entropy_only": {
+          "mean": 0.5689969460044016,
+          "std": 0.26904535428412124,
+          "n": 6
+        },
+        "full": {
+          "mean": 0.27118091571613706,
+          "std": 0.017643439271640294,
+          "n": 6
+        }
+      }
+    },
+    "in_distribution": {
+      "full_macro_f1_mean": 0.9670179602048603,
+      "cic_only_macro_f1_mean": 0.9885007449504903,
+      "entropy_helps": false,
+      "delta": -0.021483,
+      "per_set": {
+        "cic_only": {
+          "mean": 0.9885007449504903,
+          "std": 0.0,
+          "n": 3
+        },
+        "entropy_only": {
+          "mean": 0.49964118049506884,
+          "std": 0.0004611579725993513,
+          "n": 3
+        },
+        "full": {
+          "mean": 0.9670179602048603,
+          "std": 0.0,
+          "n": 3
+        }
+      }
+    }
+  },
+  "shifts_where_entropy_helps": [],
+  "verdict": "The entropy augmentation does not improve macro F1 under any shift measured here, nor in distribution. On the evidence in this paper the augmentation is not justified by detection performance, and its case rests only on its negligible cost. We state this rather than searching for a setting in which the sign is favourable.",
+  "total_runtime_s": 564.4
+}

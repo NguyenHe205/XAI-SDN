@@ -1,0 +1,127 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Data (large files — use DVC)
+data/raw/
+data/processed/
+data/splits/
+*.csv
+# Exception: the experiment results are the evidence the article's Data
+# Availability statement points readers to, so they are tracked.
+!research/results/**
+!research/data_profiles/**
+!supplementary/**
+*.parquet
+*.h5
+*.hdf5
+
+# Model artifacts (generated — use DVC or commit deliberately for provenance)
+# Exception: X_test.npy and y_test.npy MAY be committed for reproducibility
+model/artifacts/*.pkl
+model/artifacts/*.json
+model/artifacts/X_test.npy
+model/artifacts/y_test.npy
+*.npy
+*.pkl
+*.joblib
+*.pt
+*.pth
+mlruns/
+
+# Logs
+/logs/
+*.log
+# Exception: the experiment run log and per-experiment logs are provenance.
+!research/logs/**
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environment
+.env
+.env.local
+
+# Docker
+docker-compose.override.yml
+
+# Generated
+SHAP_output/
+/figures/
+# Exception: the manuscript artwork must ship with its LaTeX source, otherwise
+# the released source cannot be compiled by anyone who clones the repository.
+!research/paper/figures/
+!research/paper/figures/**
+!research/figures/**
+!assets/**
+
+# Generated result artifacts (do not commit — regenerate from CI)
+SMOKE_TEST_REPORT.md
+EVALUATION_REPORT.md
+model/artifacts/reproducibility_manifest.json
+data/alerts.db
+
+# build artifacts
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg
+*.synctex.gz
+*.bak_*
+mlflow.db
+__pycache__/
+
+# ---------------------------------------------------------------------
+# Published research artifacts. These exceptions must stay LAST: a later
+# pattern overrides an earlier one, so any new ignore rule added above
+# would otherwise silently withhold the evidence the article points to.
+# ---------------------------------------------------------------------
+!research/results/**
+!research/logs/**
+!research/figures/**
+!research/paper/**
+!research/data_profiles/**
+!supplementary/**
+!assets/**

@@ -1,0 +1,25 @@
+fitting detector...
+stream 60,000 flows, attack prevalence 1.0000
+measuring stage costs...
+  inference 19,785 flows/s; SHAP 2.319 ms/explanation (431/s); alert rate 1.0000
+  P0 always: 422 flows/s at 100% alert coverage
+P1 episode deduplication...
+  fine    window 1.0s:  55,986 explanations (     1.1x fewer),       452 flows/s
+  fine    window 5.0s:  53,817 explanations (     1.1x fewer),       469 flows/s
+  medium  window 1.0s:  46,198 explanations (     1.3x fewer),       545 flows/s
+  medium  window 5.0s:  38,046 explanations (     1.6x fewer),       658 flows/s
+  coarse  window 1.0s:       5 explanations (11,999.6x fewer),    19,710 flows/s
+  coarse  window 5.0s:       2 explanations (29,999.0x fewer),    19,755 flows/s
+P2 token bucket...
+  50/s -> coverage 0.003, 17,737 flows/s
+  100/s -> coverage 0.005, 16,064 flows/s
+  250/s -> coverage 0.013, 12,526 flows/s
+  500/s -> coverage 0.025, 9,163 flows/s
+  1000/s -> coverage 0.051, 5,962 flows/s
+  2000/s -> coverage 0.101, 3,510 flows/s
+P3 asynchronous off-path queue (measured, not modelled)...
+  cap 128: detection path 814 flows/s, coverage 0.494, drop rate 50.560%
+  cap 1024: detection path 408 flows/s, coverage 1.000, drop rate 0.000%
+  cap 8192: detection path 369 flows/s, coverage 1.000, drop rate 0.000%
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E10_explanation_budget.json

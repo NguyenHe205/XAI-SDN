@@ -1,0 +1,113 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-11-22T20:54:27"
+  },
+  "experiment": "X2",
+  "objective": "test whether Platt / isotonic calibration of the forest score helps under the chronological protocol",
+  "n_fit": 2154476,
+  "n_validation": 359080,
+  "n_test": 1077238,
+  "benign_validation": 60,
+  "benign_test": 30432,
+  "attack_rate_validation": 0.9998329063161413,
+  "attack_rate_test": 0.9717499754000509,
+  "results": [
+    {
+      "tau": 0.7,
+      "macro_f1": 0.9778670180766414,
+      "fpr": 0.001150105152471083,
+      "fnr": 0.0025735427576838495,
+      "fp": 35,
+      "fn": 2694,
+      "brier": 0.0023974697559870695,
+      "log_loss": 0.009387775647999572,
+      "ece_10bins": 0.004007661259628775,
+      "roc_auc": 0.9996676847843385,
+      "method": "raw vote fraction",
+      "tag": "raw@0.70 (paper)"
+    },
+    {
+      "tau": 0.5,
+      "macro_f1": 0.9792706197531098,
+      "fpr": 0.005159043112513144,
+      "fnr": 0.0022754932623618896,
+      "fp": 157,
+      "fn": 2382,
+      "brier": 0.0023974697559870695,
+      "log_loss": 0.009387775647999572,
+      "ece_10bins": 0.004007661259628775,
+      "roc_auc": 0.9996676847843385,
+      "method": "raw vote fraction",
+      "tag": "raw@0.50"
+    },
+    {
+      "tau": 0.5,
+      "macro_f1": 0.4928363065925188,
+      "fpr": 1.0,
+      "fnr": 0.0,
+      "fp": 30432,
+      "fn": 0,
+      "brier": 0.027765123056307895,
+      "log_loss": 0.1365156024845645,
+      "ece_10bins": 0.027930818449732664,
+      "roc_auc": 0.9996676847843385,
+      "method": "Platt scaling",
+      "tag": "platt@0.50"
+    },
+    {
+      "tau": 0.5,
+      "macro_f1": 0.9793825375225802,
+      "fpr": 0.004238958990536277,
+      "fnr": 0.0022907778518655797,
+      "fp": 129,
+      "fn": 2398,
+      "brier": 0.001951160100047413,
+      "log_loss": 0.007091965031789247,
+      "ece_10bins": 0.0020609253877575955,
+      "roc_auc": 0.9996676647412706,
+      "method": "isotonic regression",
+      "tag": "isotonic@0.50"
+    }
+  ],
+  "sanity": {
+    "raw_0.70_macro_f1": 0.9778670180766414,
+    "e12_macro_f1": 0.9778670180766414,
+    "delta": 0.0,
+    "within_0.002": true
+  },
+  "total_runtime_s": 90.7
+}

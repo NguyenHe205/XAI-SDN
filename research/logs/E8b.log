@@ -1,0 +1,86 @@
+field diversity in this window:
+  n_flows                              40,000
+  distinct_source_addresses                 3
+  distinct_source_24s                       2
+  distinct_source_16s                       2
+  distinct_destination_addresses            3
+  distinct_destination_ports           29,064
+  distinct_source_ports                34,624
+  distinct_exact_keys                  29,065
+
+across the whole partition, 99.1% of flows carry one source address (172.16.0.5)
+
+  cap= 1024 agg=exact           ev=hard installs=38,221 peak= 1,024 overflow=37,197 hit_rate=0.044
+  cap= 1024 agg=exact           ev=idle installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=exact           ev=lru  installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=exact           ev=lfu  installs=38,326 peak= 1,024 overflow=37,302 hit_rate=0.042
+  cap= 1024 agg=prefix24        ev=hard installs=38,221 peak= 1,024 overflow=37,197 hit_rate=0.044
+  cap= 1024 agg=prefix24        ev=idle installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=prefix24        ev=lru  installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=prefix24        ev=lfu  installs=38,326 peak= 1,024 overflow=37,302 hit_rate=0.042
+  cap= 1024 agg=prefix16        ev=hard installs=38,221 peak= 1,024 overflow=37,197 hit_rate=0.044
+  cap= 1024 agg=prefix16        ev=idle installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=prefix16        ev=lru  installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=prefix16        ev=lfu  installs=38,326 peak= 1,024 overflow=37,302 hit_rate=0.042
+  cap= 1024 agg=noport          ev=hard installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=noport          ev=idle installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=noport          ev=lru  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=noport          ev=lfu  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=victim          ev=hard installs=38,221 peak= 1,024 overflow=37,197 hit_rate=0.044
+  cap= 1024 agg=victim          ev=idle installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=victim          ev=lru  installs=38,222 peak= 1,024 overflow=37,198 hit_rate=0.044
+  cap= 1024 agg=victim          ev=lfu  installs=38,326 peak= 1,024 overflow=37,302 hit_rate=0.042
+  cap= 1024 agg=victim_service  ev=hard installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=victim_service  ev=idle installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=victim_service  ev=lru  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 1024 agg=victim_service  ev=lfu  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=exact           ev=hard installs=36,538 peak= 4,096 overflow=32,442 hit_rate=0.087
+  cap= 4096 agg=exact           ev=idle installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=exact           ev=lru  installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=exact           ev=lfu  installs=36,477 peak= 4,096 overflow=32,381 hit_rate=0.088
+  cap= 4096 agg=prefix24        ev=hard installs=36,538 peak= 4,096 overflow=32,442 hit_rate=0.087
+  cap= 4096 agg=prefix24        ev=idle installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=prefix24        ev=lru  installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=prefix24        ev=lfu  installs=36,477 peak= 4,096 overflow=32,381 hit_rate=0.088
+  cap= 4096 agg=prefix16        ev=hard installs=36,538 peak= 4,096 overflow=32,442 hit_rate=0.087
+  cap= 4096 agg=prefix16        ev=idle installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=prefix16        ev=lru  installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=prefix16        ev=lfu  installs=36,477 peak= 4,096 overflow=32,381 hit_rate=0.088
+  cap= 4096 agg=noport          ev=hard installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=noport          ev=idle installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=noport          ev=lru  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=noport          ev=lfu  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=victim          ev=hard installs=36,538 peak= 4,096 overflow=32,442 hit_rate=0.087
+  cap= 4096 agg=victim          ev=idle installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=victim          ev=lru  installs=36,532 peak= 4,096 overflow=32,436 hit_rate=0.087
+  cap= 4096 agg=victim          ev=lfu  installs=36,477 peak= 4,096 overflow=32,381 hit_rate=0.088
+  cap= 4096 agg=victim_service  ev=hard installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=victim_service  ev=idle installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=victim_service  ev=lru  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap= 4096 agg=victim_service  ev=lfu  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=exact           ev=hard installs=31,141 peak=16,384 overflow=14,757 hit_rate=0.221
+  cap=16384 agg=exact           ev=idle installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=exact           ev=lru  installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=exact           ev=lfu  installs=31,024 peak=16,384 overflow=14,640 hit_rate=0.224
+  cap=16384 agg=prefix24        ev=hard installs=31,141 peak=16,384 overflow=14,757 hit_rate=0.221
+  cap=16384 agg=prefix24        ev=idle installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=prefix24        ev=lru  installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=prefix24        ev=lfu  installs=31,024 peak=16,384 overflow=14,640 hit_rate=0.224
+  cap=16384 agg=prefix16        ev=hard installs=31,141 peak=16,384 overflow=14,757 hit_rate=0.221
+  cap=16384 agg=prefix16        ev=idle installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=prefix16        ev=lru  installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=prefix16        ev=lfu  installs=31,024 peak=16,384 overflow=14,640 hit_rate=0.224
+  cap=16384 agg=noport          ev=hard installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=noport          ev=idle installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=noport          ev=lru  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=noport          ev=lfu  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=victim          ev=hard installs=31,141 peak=16,384 overflow=14,757 hit_rate=0.221
+  cap=16384 agg=victim          ev=idle installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=victim          ev=lru  installs=31,064 peak=16,384 overflow=14,680 hit_rate=0.223
+  cap=16384 agg=victim          ev=lfu  installs=31,024 peak=16,384 overflow=14,640 hit_rate=0.224
+  cap=16384 agg=victim_service  ev=hard installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=victim_service  ev=idle installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=victim_service  ev=lru  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+  cap=16384 agg=victim_service  ev=lfu  installs=     3 peak=     3 overflow=     0 hit_rate=1.000
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E8b_tcam_policy.json

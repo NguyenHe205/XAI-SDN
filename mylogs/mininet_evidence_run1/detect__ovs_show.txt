@@ -1,0 +1,2 @@
+4c27d0ef-0d4a-4e8a-bd59-18f967c77741
+    ovs_version: "2.17.12"

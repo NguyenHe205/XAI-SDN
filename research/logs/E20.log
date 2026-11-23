@@ -1,0 +1,60 @@
+
+insdn: source (600000, 87), target (223372, 87)
+  source model fitted in 25.0s
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  train 156,360, test 67,012, test benign 66,920
+  zero_shot                    F1=0.5062 FNR=0.9891
+  labelling pool: 1,499 benign, 154,861 attack
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=   100  target_only F1=0.4993  fine_tune F1=0.4996  joint F1=0.5865
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=   500  target_only F1=0.3917  fine_tune F1=0.6205  joint F1=0.5232
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n= 1,000  target_only F1=0.4838  fine_tune F1=0.5126  joint F1=0.7838
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n= 5,000  target_only F1=0.4782  fine_tune F1=0.5191  joint F1=0.5328
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=10,000  target_only F1=0.4817  fine_tune F1=0.5726  joint F1=0.5193
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=25,000  target_only F1=0.4826  fine_tune F1=0.5661  joint F1=0.5790
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=50,000  target_only F1=0.4342  fine_tune F1=0.6060  joint F1=0.4995
+
+ids2017: source (600000, 82), target (223082, 82)
+  source model fitted in 24.0s
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  train 156,157, test 66,925, test benign 39,930
+  zero_shot                    F1=0.3680 FNR=0.9889
+  labelling pool: 55,138 benign, 101,019 attack
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=   100  target_only F1=0.9957  fine_tune F1=0.5458  joint F1=0.9912
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=   500  target_only F1=0.9987  fine_tune F1=0.5798  joint F1=0.9953
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n= 1,000  target_only F1=0.9987  fine_tune F1=0.5879  joint F1=0.9970
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n= 5,000  target_only F1=0.9985  fine_tune F1=0.5899  joint F1=0.9986
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=10,000  target_only F1=0.9988  fine_tune F1=0.5899  joint F1=0.9983
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=25,000  target_only F1=0.9990  fine_tune F1=0.5906  joint F1=0.9989
+C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\sklearn\ensemble\_forest.py:843: UserWarning: class_weight presets "balanced" or "balanced_subsample" are not recommended for warm_start if the fitted data differs from the full dataset. In order to use "balanced" weights, use compute_class_weight ("balanced", classes, y). In place of y you can use a large enough sample of the full training set target to properly estimate the class frequency distributions. Pass the resulting weights as the class_weight parameter.
+  warn(
+  n=50,000  target_only F1=0.9991  fine_tune F1=0.5907  joint F1=0.9991
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E20_few_shot_transfer.json

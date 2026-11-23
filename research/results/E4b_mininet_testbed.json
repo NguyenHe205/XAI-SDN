@@ -1,0 +1,352 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-28T07:32:50"
+  },
+  "experiment": "E4b",
+  "objective": "Mininet proof of concept with live traffic",
+  "platform": "Mininet + Open vSwitch + os-ken inside WSL2 Ubuntu",
+  "conditions": [
+    "no_controller",
+    "detect",
+    "detect_explain"
+  ],
+  "staged": "total 216\ndrwxr-xr-x 5 root root   4096 Oct 28 07:29 .\ndrwxr-xr-x 3 root root   4096 Oct 27 16:58 ..\ndrwxr-xr-x 2 root root   4096 Oct 27 16:59 bin\ndrwxr-xr-x 3 root root   4096 Oct 27 16:59 include\ndrwxr-xr-x 3 root root   4096 Oct 27 16:58 lib\nlrwxrwxrwx 1 root root      3 Oct 27 16:58 lib64 -> lib\n-rwxr-xr-x 1 root root 171674 Oct 28 07:29 model.joblib\n-rw-r--r-- 1 root root     71 Oct 27 17:02 pyvenv.cfg\n-rwxr-xr-x 1 root root   2100 Oct 28 07:29 run_controller.py\n-rwxr-xr-x 1 root root   6835 Oct 28 07:29 run_topology.py\n-rwxr-xr-x 1 root root  11805 Oct 28 07:29 xaisdn_controller.py\n",
+  "results": {
+    "no_controller": {
+      "condition": "no_controller",
+      "topology_mode": "nodetect",
+      "controller_pid": "20214",
+      "controller_ready": true,
+      "topology_returncode": 0,
+      "terminal_evidence": {
+        "ovs_show": "4c27d0ef-0d4a-4e8a-bd59-18f967c77741\n    ovs_version: \"2.17.12\"",
+        "controller_tail": "XAI-SDN controller listening on 0.0.0.0:6653 (app xaisdn_controller)",
+        "mn_version": "2.3.0\novs-vsctl (Open vSwitch) 2.17.12",
+        "flow_table": "cookie=0x0, duration=43.092s, table=0, n_packets=19468, n_bytes=1291177, idle_timeout=10, hard_timeout=60, priority=10,in_port=\"s1-eth3\",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02 actions=output:\"s1-eth2\"\n cookie=0x0, duration=43.088s, table=0, n_packets=19691, n_bytes=210689152, idle_timeout=10, hard_timeout=60, priority=10,in_port=\"s1-eth2\",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=output:\"s1-eth3\"\n cookie=0x0, duration=23.358s, table=0, n_packets=1673569, n_bytes=90372726, idle_timeout=10, hard_timeout=60, priority=10,in_port=\"s1-eth1\",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:\"s1-eth3\"\n cookie=0x0, duration=46.195s, table=0, n_packets=19376, n_bytes=819048, priority=0 actions=CONTROLLER:65535",
+        "ofctl_show": "OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001\r\nn_tables:254, n_buffers:0\r\ncapabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS\r\nOFPST_PORT_DESC reply (OF1.3) (xid=0x3):\r\n 1(s1-eth1): addr:b6:ff:c8:81:14:22\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 2(s1-eth2): addr:1a:e2:4e:80:53:63\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 3(s1-eth3): addr:d6:a4:a9:ae:bf:31\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n LOCAL(s1): addr:e6:e9:1c:6b:5a:44\r\n     config:     PORT_DOWN\r\n     state:      LINK_DOWN\r\n     speed: 0 Mbps now, 0 Mbps max\r\nOFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0"
+      },
+      "mininet": {
+        "mode": "nodetect",
+        "topology": "1 switch, 3 hosts, 100 Mbit/s, 1 ms",
+        "pingall_loss_percent": 0.0,
+        "reachability_percent": 100.0,
+        "baseline": {
+          "ping": {
+            "loss_percent": 0.0,
+            "rtt_min_ms": 4.301,
+            "rtt_avg_ms": 5.076,
+            "rtt_max_ms": 6.138,
+            "rtt_mdev_ms": 0.471
+          },
+          "iperf": {
+            "throughput_mbps": 93.786,
+            "retransmits": 0,
+            "bytes": 123600896
+          }
+        },
+        "under_attack": {
+          "ping": {
+            "loss_percent": 0.0,
+            "rtt_min_ms": 4.053,
+            "rtt_avg_ms": 4.213,
+            "rtt_max_ms": 5.729,
+            "rtt_mdev_ms": 0.297
+          },
+          "iperf": {
+            "throughput_mbps": 63.15,
+            "retransmits": 465,
+            "bytes": 79429632
+          }
+        },
+        "flow_table": {
+          "entries": 3,
+          "drop_rules": 0,
+          "dump_head": "cookie=0x0, duration=43.092s, table=0, n_packets=19468, n_bytes=1291177, idle_timeout=10, hard_timeout=60, priority=10,in_port=\"s1-eth3\",dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02 actions=output:\"s1-eth2\"\n cookie=0x0, duration=43.088s, table=0, n_packets=19691, n_bytes=210689152, idle_timeout=10, hard_timeout=60, priority=10,in_port=\"s1-eth2\",dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=output:\"s1-eth3\"\n cookie=0x0, duration=23.358s, table=0, n_packets=1673569, n_bytes=90372726, idle_timeout=10, hard_timeout=60, priority=10,in_port=\"s1-eth1\",dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:\"s1-eth3\"\n cookie=0x0, duration=46.195s, table=0, n_packets=19376, n_bytes=819048, priority=0 actions=CONTROLLER:65535",
+          "ofctl_show": "OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001\r\nn_tables:254, n_buffers:0\r\ncapabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS\r\nOFPST_PORT_DESC reply (OF1.3) (xid=0x3):\r\n 1(s1-eth1): addr:b6:ff:c8:81:14:22\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 2(s1-eth2): addr:1a:e2:4e:80:53:63\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 3(s1-eth3): addr:d6:a4:a9:ae:bf:31\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n LOCAL(s1): addr:e6:e9:1c:6b:5a:44\r\n     config:     PORT_DOWN\r\n     state:      LINK_DOWN\r\n     speed: 0 Mbps now, 0 Mbps max\r\nOFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0"
+        },
+        "qos_impact": {
+          "throughput_retained_fraction": 0.6733,
+          "rtt_inflation_factor": 0.83,
+          "added_loss_percent": 0
+        },
+        "status": "ok"
+      },
+      "controller": {
+        "packet_in": 20009,
+        "flow_mod": 984,
+        "packet_out": 20009,
+        "alerts": 0,
+        "explanations": 0,
+        "drops_installed": 0,
+        "bytes_in": 853230,
+        "detect_enabled": false,
+        "explain_enabled": false,
+        "skipped_non_tcp": 980,
+        "wall_seconds": 49.88,
+        "decide_ms": {
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "mean": null,
+          "n": 0
+        },
+        "install_ms": {
+          "p50": 0.029286,
+          "p95": 0.3275313999999997,
+          "mean": 0.07843653905742416
+        },
+        "controller_cpu_percent": {
+          "mean": 41.56125,
+          "p95": 89.3,
+          "max": 173.4
+        },
+        "controller_rss_gb": {
+          "mean": 0.0488189697265625,
+          "max": 0.04941558837890625
+        },
+        "packet_in_per_s": 401.1
+      }
+    },
+    "detect": {
+      "condition": "detect",
+      "topology_mode": "detect",
+      "controller_pid": "20657",
+      "controller_ready": true,
+      "topology_returncode": 0,
+      "terminal_evidence": {
+        "ovs_show": "4c27d0ef-0d4a-4e8a-bd59-18f967c77741\n    ovs_version: \"2.17.12\"",
+        "controller_tail": "/opt/xaisdn/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n  warnings.warn(\n/opt/xaisdn/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n  warnings.warn(\nXAI-SDN controller listening on 0.0.0.0:6653 (app xaisdn_controller)",
+        "mn_version": "2.3.0\novs-vsctl (Open vSwitch) 2.17.12",
+        "flow_table": "cookie=0x0, duration=11.646s, table=0, n_packets=1, n_bytes=54, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=136.225.112.76 actions=drop\n cookie=0x0, duration=9.990s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=213.190.35.131 actions=drop\n cookie=0x0, duration=9.990s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=108.40.58.58 actions=drop\n cookie=0x0, duration=9.983s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=161.8.155.52 actions=drop\n cookie=0x0, duration=9.971s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=114.226.166.250 actions=drop\n cookie=0x0, duration=9.937s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=134.27.200.82 actions=drop\n cookie=0x0, duration=9.923s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=126.135.4.211 actions=drop\n cookie=0x0, duration=9.900s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=155.231.115.192 actions=drop\n cookie=0x0, duration=9.890s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=16.19.28.8 actions=drop\n cookie=0x0, duration=9.877s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=164.35.103.192 actions=drop\n cookie=0x0, duration=9.857s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=9.173.213.35 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=252.36.151.44 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=98.129.168.36 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=108.222.32.115 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=37.254.151.82 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=35.202.28.217 actions=drop\n cookie=0x0, duration=9.765s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=19.98.248.108 actions=drop\n cookie=0x0, duration=9.765s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=219.164.195.59 actions=drop\n cookie=0x0, duration=9.765s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=60.182.77.9 actions=drop\n cookie=0x0, duration=9.724s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=41.224.225.8 actions=drop",
+        "ofctl_show": "OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001\r\nn_tables:254, n_buffers:0\r\ncapabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS\r\nOFPST_PORT_DESC reply (OF1.3) (xid=0x3):\r\n 1(s1-eth1): addr:0e:81:eb:51:81:44\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 2(s1-eth2): addr:0e:0d:fe:51:8d:8c\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 3(s1-eth3): addr:3a:7e:88:ea:ce:62\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n LOCAL(s1): addr:f6:f0:36:0e:7a:40\r\n     config:     PORT_DOWN\r\n     state:      LINK_DOWN\r\n     speed: 0 Mbps now, 0 Mbps max\r\nOFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0"
+      },
+      "mininet": {
+        "mode": "detect",
+        "topology": "1 switch, 3 hosts, 100 Mbit/s, 1 ms",
+        "pingall_loss_percent": 0.0,
+        "reachability_percent": 100.0,
+        "baseline": {
+          "ping": {
+            "loss_percent": 0.0,
+            "rtt_min_ms": 4.3,
+            "rtt_avg_ms": 4.849,
+            "rtt_max_ms": 5.642,
+            "rtt_mdev_ms": 0.345
+          },
+          "iperf": {
+            "throughput_mbps": 92.337,
+            "retransmits": 0,
+            "bytes": 121634816
+          }
+        },
+        "under_attack": {
+          "ping": {
+            "loss_percent": 0.0,
+            "rtt_min_ms": 4.17,
+            "rtt_avg_ms": 4.295,
+            "rtt_max_ms": 4.478,
+            "rtt_mdev_ms": 0.078
+          },
+          "iperf": {
+            "throughput_mbps": 94.975,
+            "retransmits": 0,
+            "bytes": 125173760
+          }
+        },
+        "flow_table": {
+          "entries": 792,
+          "drop_rules": 790,
+          "dump_head": "cookie=0x0, duration=11.646s, table=0, n_packets=1, n_bytes=54, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=136.225.112.76 actions=drop\n cookie=0x0, duration=9.990s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=213.190.35.131 actions=drop\n cookie=0x0, duration=9.990s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=108.40.58.58 actions=drop\n cookie=0x0, duration=9.983s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=161.8.155.52 actions=drop\n cookie=0x0, duration=9.971s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=114.226.166.250 actions=drop\n cookie=0x0, duration=9.937s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=134.27.200.82 actions=drop\n cookie=0x0, duration=9.923s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=126.135.4.211 actions=drop\n cookie=0x0, duration=9.900s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=155.231.115.192 actions=drop\n cookie=0x0, duration=9.890s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=16.19.28.8 actions=drop\n cookie=0x0, duration=9.877s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=164.35.103.192 actions=drop\n cookie=0x0, duration=9.857s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=9.173.213.35 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=252.36.151.44 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=98.129.168.36 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=108.222.32.115 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=37.254.151.82 actions=drop\n cookie=0x0, duration=9.806s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=35.202.28.217 actions=drop\n cookie=0x0, duration=9.765s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=19.98.248.108 actions=drop\n cookie=0x0, duration=9.765s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=219.164.195.59 actions=drop\n cookie=0x0, duration=9.765s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=60.182.77.9 actions=drop\n cookie=0x0, duration=9.724s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=41.224.225.8 actions=drop",
+          "ofctl_show": "OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001\r\nn_tables:254, n_buffers:0\r\ncapabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS\r\nOFPST_PORT_DESC reply (OF1.3) (xid=0x3):\r\n 1(s1-eth1): addr:0e:81:eb:51:81:44\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 2(s1-eth2): addr:0e:0d:fe:51:8d:8c\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 3(s1-eth3): addr:3a:7e:88:ea:ce:62\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n LOCAL(s1): addr:f6:f0:36:0e:7a:40\r\n     config:     PORT_DOWN\r\n     state:      LINK_DOWN\r\n     speed: 0 Mbps now, 0 Mbps max\r\nOFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0"
+        },
+        "qos_impact": {
+          "throughput_retained_fraction": 1.0286,
+          "rtt_inflation_factor": 0.886,
+          "added_loss_percent": 0
+        },
+        "status": "ok"
+      },
+      "controller": {
+        "packet_in": 2150,
+        "flow_mod": 2126,
+        "packet_out": 30,
+        "alerts": 2119,
+        "explanations": 0,
+        "drops_installed": 2119,
+        "bytes_in": 116784,
+        "detect_enabled": true,
+        "explain_enabled": false,
+        "skipped_non_tcp": 3,
+        "wall_seconds": 52.72,
+        "decide_ms": {
+          "p50": 11.654727,
+          "p95": 17.647558399999998,
+          "p99": 20.191559060000014,
+          "mean": 12.000839822085888,
+          "n": 2119
+        },
+        "install_ms": {
+          "p50": 0.225717,
+          "p95": 0.4096275999999999,
+          "mean": 0.2497223140995812
+        },
+        "controller_cpu_percent": {
+          "mean": 108.22325581395347,
+          "p95": 114.37,
+          "max": 115.7
+        },
+        "controller_rss_gb": {
+          "mean": 0.1635547819591704,
+          "max": 0.16363906860351562
+        },
+        "packet_in_per_s": 40.8
+      }
+    },
+    "detect_explain": {
+      "condition": "detect_explain",
+      "topology_mode": "detect",
+      "controller_pid": "21120",
+      "controller_ready": true,
+      "topology_returncode": 0,
+      "terminal_evidence": {
+        "ovs_show": "4c27d0ef-0d4a-4e8a-bd59-18f967c77741\n    ovs_version: \"2.17.12\"",
+        "controller_tail": "/opt/xaisdn/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n  warnings.warn(\n/opt/xaisdn/lib/python3.10/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n  warnings.warn(\nXAI-SDN controller listening on 0.0.0.0:6653 (app xaisdn_controller)",
+        "mn_version": "2.3.0\novs-vsctl (Open vSwitch) 2.17.12",
+        "flow_table": "cookie=0x0, duration=15.140s, table=0, n_packets=1, n_bytes=54, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=133.89.67.32 actions=drop\n cookie=0x0, duration=14.047s, table=0, n_packets=1, n_bytes=54, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=206.237.36.229 actions=drop\n cookie=0x0, duration=10s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=199.219.157.78 actions=drop\n cookie=0x0, duration=10s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=227.174.195.42 actions=drop\n cookie=0x0, duration=10s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=250.237.32.206 actions=drop\n cookie=0x0, duration=9.968s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=227.125.176.27 actions=drop\n cookie=0x0, duration=9.968s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=253.131.95.32 actions=drop\n cookie=0x0, duration=9.955s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=226.174.226.103 actions=drop\n cookie=0x0, duration=9.931s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=99.16.29.173 actions=drop\n cookie=0x0, duration=9.886s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=53.118.109.206 actions=drop\n cookie=0x0, duration=9.886s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=75.248.96.51 actions=drop\n cookie=0x0, duration=9.886s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=133.90.45.118 actions=drop\n cookie=0x0, duration=9.847s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=243.77.192.60 actions=drop\n cookie=0x0, duration=9.847s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=213.213.7.39 actions=drop\n cookie=0x0, duration=9.847s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=240.120.7.45 actions=drop\n cookie=0x0, duration=9.827s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=219.145.78.238 actions=drop\n cookie=0x0, duration=9.778s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=3.36.253.168 actions=drop\n cookie=0x0, duration=9.778s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=229.12.234.141 actions=drop\n cookie=0x0, duration=9.778s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=15.53.153.1 actions=drop\n cookie=0x0, duration=9.771s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=173.184.0.32 actions=drop",
+        "ofctl_show": "OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001\r\nn_tables:254, n_buffers:0\r\ncapabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS\r\nOFPST_PORT_DESC reply (OF1.3) (xid=0x3):\r\n 1(s1-eth1): addr:0e:ec:b1:cb:4f:64\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 2(s1-eth2): addr:ba:39:28:98:11:e5\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 3(s1-eth3): addr:da:cc:95:b7:82:93\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n LOCAL(s1): addr:0a:63:8a:be:a5:4f\r\n     config:     PORT_DOWN\r\n     state:      LINK_DOWN\r\n     speed: 0 Mbps now, 0 Mbps max\r\nOFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0"
+      },
+      "mininet": {
+        "mode": "detect",
+        "topology": "1 switch, 3 hosts, 100 Mbit/s, 1 ms",
+        "pingall_loss_percent": 0.0,
+        "reachability_percent": 100.0,
+        "baseline": {
+          "ping": {
+            "loss_percent": 0.0,
+            "rtt_min_ms": 4.313,
+            "rtt_avg_ms": 5.07,
+            "rtt_max_ms": 6.124,
+            "rtt_mdev_ms": 0.376
+          },
+          "iperf": {
+            "throughput_mbps": 91.81,
+            "retransmits": 0,
+            "bytes": 120848384
+          }
+        },
+        "under_attack": {
+          "ping": {
+            "loss_percent": 0.0,
+            "rtt_min_ms": 4.12,
+            "rtt_avg_ms": 4.313,
+            "rtt_max_ms": 5.045,
+            "rtt_mdev_ms": 0.172
+          },
+          "iperf": {
+            "throughput_mbps": 95.113,
+            "retransmits": 0,
+            "bytes": 125435904
+          }
+        },
+        "flow_table": {
+          "entries": 732,
+          "drop_rules": 730,
+          "dump_head": "cookie=0x0, duration=15.140s, table=0, n_packets=1, n_bytes=54, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=133.89.67.32 actions=drop\n cookie=0x0, duration=14.047s, table=0, n_packets=1, n_bytes=54, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=206.237.36.229 actions=drop\n cookie=0x0, duration=10s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=199.219.157.78 actions=drop\n cookie=0x0, duration=10s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=227.174.195.42 actions=drop\n cookie=0x0, duration=10s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=250.237.32.206 actions=drop\n cookie=0x0, duration=9.968s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=227.125.176.27 actions=drop\n cookie=0x0, duration=9.968s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=253.131.95.32 actions=drop\n cookie=0x0, duration=9.955s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=226.174.226.103 actions=drop\n cookie=0x0, duration=9.931s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=99.16.29.173 actions=drop\n cookie=0x0, duration=9.886s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=53.118.109.206 actions=drop\n cookie=0x0, duration=9.886s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=75.248.96.51 actions=drop\n cookie=0x0, duration=9.886s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=133.90.45.118 actions=drop\n cookie=0x0, duration=9.847s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=243.77.192.60 actions=drop\n cookie=0x0, duration=9.847s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=213.213.7.39 actions=drop\n cookie=0x0, duration=9.847s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=240.120.7.45 actions=drop\n cookie=0x0, duration=9.827s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=219.145.78.238 actions=drop\n cookie=0x0, duration=9.778s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=3.36.253.168 actions=drop\n cookie=0x0, duration=9.778s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=229.12.234.141 actions=drop\n cookie=0x0, duration=9.778s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=15.53.153.1 actions=drop\n cookie=0x0, duration=9.771s, table=0, n_packets=0, n_bytes=0, idle_timeout=10, hard_timeout=60, priority=100,tcp,nw_src=173.184.0.32 actions=drop",
+          "ofctl_show": "OFPT_FEATURES_REPLY (OF1.3) (xid=0x2): dpid:0000000000000001\r\nn_tables:254, n_buffers:0\r\ncapabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS QUEUE_STATS\r\nOFPST_PORT_DESC reply (OF1.3) (xid=0x3):\r\n 1(s1-eth1): addr:0e:ec:b1:cb:4f:64\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 2(s1-eth2): addr:ba:39:28:98:11:e5\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n 3(s1-eth3): addr:da:cc:95:b7:82:93\r\n     config:     0\r\n     state:      LIVE\r\n     current:    10GB-FD COPPER\r\n     speed: 10000 Mbps now, 0 Mbps max\r\n LOCAL(s1): addr:0a:63:8a:be:a5:4f\r\n     config:     PORT_DOWN\r\n     state:      LINK_DOWN\r\n     speed: 0 Mbps now, 0 Mbps max\r\nOFPT_GET_CONFIG_REPLY (OF1.3) (xid=0x9): frags=normal miss_send_len=0"
+        },
+        "qos_impact": {
+          "throughput_retained_fraction": 1.036,
+          "rtt_inflation_factor": 0.851,
+          "added_loss_percent": 0
+        },
+        "status": "ok"
+      },
+      "controller": {
+        "packet_in": 2031,
+        "flow_mod": 2008,
+        "packet_out": 29,
+        "alerts": 2001,
+        "explanations": 2001,
+        "drops_installed": 2001,
+        "bytes_in": 110302,
+        "detect_enabled": true,
+        "explain_enabled": true,
+        "skipped_non_tcp": 3,
+        "wall_seconds": 51.81,
+        "decide_ms": {
+          "p50": 11.805199,
+          "p95": 17.40258,
+          "p99": 19.536897,
+          "mean": 12.069636427786106,
+          "n": 2001
+        },
+        "install_ms": {
+          "p50": 0.2231355,
+          "p95": 0.4256346,
+          "mean": 0.25208202315270933
+        },
+        "controller_cpu_percent": {
+          "mean": 107.59,
+          "p95": 113.6,
+          "max": 115.1
+        },
+        "controller_rss_gb": {
+          "mean": 0.22090835571289064,
+          "max": 0.22101211547851562
+        },
+        "packet_in_per_s": 39.2
+      }
+    }
+  },
+  "conditions_completed": [
+    "no_controller",
+    "detect",
+    "detect_explain"
+  ],
+  "conditions_failed": [],
+  "comparison": {
+    "qos_cost_of_detection": {
+      "throughput_retained_no_controller": 0.6733,
+      "throughput_retained_detect": 1.0286,
+      "throughput_retained_detect_explain": 1.036
+    },
+    "interpretation": "The first row is the network's own resilience to the flood with no detection logic. The second shows what the detector recovers or costs. The third isolates the additional cost of attributing every admitted alert on the data path."
+  },
+  "terminal_evidence_dir": "C:\\Projects\\XAI-SDN-main\\XAI-SDN-main\\research\\results\\mininet_evidence",
+  "status": "ok",
+  "total_runtime_s": 181.7
+}

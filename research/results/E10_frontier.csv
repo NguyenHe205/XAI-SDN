@@ -1,0 +1,17 @@
+policy,explained,coverage_of_alerts,sustained_flows_per_s,modelled_seconds,granularity,episode_window_s,distinct_signatures,inherited_by_reference,audit_coverage,audit_note,explanation_reduction_factor,budget_per_s
+P0 always,59998,1.0,422.1,142.16,,,,,,,,
+"P1 episode dedup (fine, window 1.0s)",55986,0.933131,451.6,,fine,1.0,53817.0,4012.0,1.0,every alert is covered either by its own explanation or by an explicit reference to its episode representative,1.07,
+"P1 episode dedup (fine, window 5.0s)",53817,0.89698,469.4,,fine,5.0,53817.0,6181.0,1.0,every alert is covered either by its own explanation or by an explicit reference to its episode representative,1.11,
+"P1 episode dedup (medium, window 1.0s)",46198,0.769992,544.7,,medium,1.0,38046.0,13800.0,1.0,every alert is covered either by its own explanation or by an explicit reference to its episode representative,1.3,
+"P1 episode dedup (medium, window 5.0s)",38046,0.634121,657.5,,medium,5.0,38046.0,21952.0,1.0,every alert is covered either by its own explanation or by an explicit reference to its episode representative,1.58,
+"P1 episode dedup (coarse, window 1.0s)",5,8.3e-05,19710.0,,coarse,1.0,2.0,59993.0,1.0,every alert is covered either by its own explanation or by an explicit reference to its episode representative,11999.6,
+"P1 episode dedup (coarse, window 5.0s)",2,3.3e-05,19755.2,,coarse,5.0,2.0,59996.0,1.0,every alert is covered either by its own explanation or by an explicit reference to its episode representative,29999.0,
+P2 token bucket (50/s),151,0.002517,17737.4,,,,,,,,,50.0
+P2 token bucket (100/s),303,0.00505,16063.6,,,,,,,,,100.0
+P2 token bucket (250/s),758,0.012634,12525.5,,,,,,,,,250.0
+P2 token bucket (500/s),1516,0.025268,9163.2,,,,,,,,,500.0
+P2 token bucket (1000/s),3032,0.050535,5962.2,,,,,,,,,1000.0
+P2 token bucket (2000/s),6065,0.101087,3509.5,,,,,,,,,2000.0
+P3 async off-path (queue 128),9888,0.4944,813.6,,,,,,,,,
+P3 async off-path (queue 1024),20000,1.0,407.7,,,,,,,,,
+P3 async off-path (queue 8192),20000,1.0,369.3,,,,,,,,,

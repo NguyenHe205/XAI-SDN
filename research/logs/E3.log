@@ -1,0 +1,44 @@
+  building SYN_0311 from Syn.csv
+  loaded 4,320,541 rows x 85 cols in 59.9s
+  cleaned: 4,320,541 -> 3,590,794 (-283,076 nan/inf, -446,671 dup)
+  features: (1200000, 88) in 9.7s
+  SYN_0311: n=1,200,000 benign=30,449 attack=1,169,551
+  building LDAP_0311 from LDAP.csv
+  loaded 2,113,234 rows x 85 cols in 23.5s
+  cleaned: 2,113,234 -> 2,023,047 (-54,112 nan/inf, -36,075 dup)
+  features: (1200000, 88) in 10.0s
+  LDAP_0311: n=1,200,000 benign=1,291 attack=1,198,709
+  building NetBIOS_0311 from NetBIOS.csv
+  loaded 3,455,899 rows x 85 cols in 42.3s
+  cleaned: 3,455,899 -> 3,241,882 (-130,560 nan/inf, -83,457 dup)
+  features: (1200000, 88) in 9.8s
+  NetBIOS_0311: n=1,200,000 benign=827 attack=1,199,173
+  building Portmap_0311 from Portmap.csv
+  loaded 191,694 rows x 85 cols in 2.2s
+  cleaned: 191,694 -> 181,860 (-9,800 nan/inf, -34 dup)
+  features: (181860, 88) in 1.5s
+  Portmap_0311: n=181,860 benign=4,695 attack=177,165
+  building SYN_0112 from Syn.csv
+  loaded 1,582,681 rows x 85 cols in 17.4s
+  cleaned: 1,582,681 -> 1,380,096 (-202,317 nan/inf, -268 dup)
+  features: (1200000, 88) in 9.6s
+  SYN_0112: n=1,200,000 benign=356 attack=1,199,644
+
+A. zero-shot transfer from SYN_0311
+  source model fit in 21.1s
+  -> SYN_0311: acc=0.9922 macroF1=0.9753 FPR=0.008039867109634552 FNR=0.007802364352834192
+  -> LDAP_0311: acc=0.9999 macroF1=0.9721 FPR=0.054221533694810226 FNR=6.173308117316213e-05
+  -> NetBIOS_0311: acc=0.9999 macroF1=0.9514 FPR=0.006045949214026602 FNR=0.00014343218201210334
+  -> Portmap_0311: acc=0.9989 macroF1=0.9891 FPR=0.006815761448349307 FNR=0.0009652019304038608
+  -> SYN_0112: acc=0.9585 macroF1=0.4964 FPR=0.008426966292134831 FNR=0.04153565557782142
+
+B. leave-one-vector-out
+  hold out SYN_0311: acc=0.8603 macroF1=0.5947 FPR=0.0 FNR=0.14329516198951564
+  hold out LDAP_0311: acc=0.9999 macroF1=0.9657 FPR=0.06429124709527498 FNR=7.925192853311355e-05
+  hold out NetBIOS_0311: acc=0.9999 macroF1=0.9551 FPR=0.0 FNR=0.00013592700969751654
+  hold out Portmap_0311: acc=0.9962 macroF1=0.9645 FPR=0.0 FNR=0.003928541190415714
+
+C. cross-day 03-11 -> 01-12
+  acc=0.9585 macroF1=0.4964 FPR=0.008426966292134831 FNR=0.04153565557782142
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E3_cross_vector.json

@@ -1,0 +1,34 @@
+loaded (3590794, 88), temporal cut at 2,513,556
+  hashing rows for exact-duplicate census...
+    exact dup rows=0 (0.00%), test rows with a train twin=0 (0.00%)
+  nearest-neighbour near-duplicate probe...
+    median NN distance=0.142339, frac<1e-6=0.000%, NN label agreement=99.226%
+  single-feature separability probe...
+    9.4s; top-5 by AUC: [{'feature': 'H_dst_ip', 'auc': 0.9986365352153873}, {'feature': 'H_src_ip', 'auc': 0.9984418259152273}, {'feature': 'H_pkt_len', 'auc': 0.9962119520034209}, {'feature': 'H_proto', 'auc': 0.9918591983528623}, {'feature': 'H_dst_port', 'auc': 0.9910644292147748}]
+  5 leakage-suspect features: ['H_dst_ip', 'H_src_ip', 'H_pkt_len', 'H_proto', 'H_dst_port']
+  class-conditional distribution checks...
+    1.0s; 0 features have completely disjoint class ranges
+Progressive removal...
+  [full 88] d=88 acc=0.997504 F1=0.978180 AUC=0.9997345771823233 FPR=0.0010515247108307045 FNR=0.002538197144456566
+  [minus top-1] d=87 acc=0.997521 F1=0.978318 AUC=0.9997916676096482 FPR=0.001150105152471083 FNR=0.0025181361207329725
+  [minus top-3] d=85 acc=0.997543 F1=0.978499 AUC=0.9998891534203892 FPR=0.0014458464773922186 FNR=0.0024866116548816113
+  [minus top-5] d=83 acc=0.997551 F1=0.978582 AUC=0.9999107355513221 FPR=0.0008215036803364879 FNR=0.002496164523321418
+  [minus top-10] d=78 acc=0.997526 F1=0.978373 AUC=0.9999013407829807 FPR=0.0007557833859095688 FNR=0.002523867841796856
+  [minus top-20] d=68 acc=0.997508 F1=0.978224 AUC=0.9997981954815595 FPR=0.0004271819137749737 FNR=0.0025525264471162757
+  [minus ALL suspects] d=83 acc=0.997551 F1=0.978582 AUC=0.9999107355513221 FPR=0.0008215036803364879 FNR=0.002496164523321418
+Controls...
+  [label permutation control] d=88 acc=0.990683 F1=0.498456 AUC=0.5008613792269082 FPR=0.999141170155663 FNR=0.0006835698828473589
+  [temporal shuffle control] d=88 acc=0.999966 F1=0.999003 AUC=0.9999999842058557 FPR=0.0 FNR=3.464743889877329e-05
+Entropy-under-shuffled-arrival-order diagnostic...
+    H_src_ip       AUC natural=0.9983 shuffled=0.5920 drop=+0.4063
+    H_dst_ip       AUC natural=0.9985 shuffled=0.5929 drop=+0.4056
+    H_dst_port     AUC natural=0.9898 shuffled=0.5583 drop=+0.4315
+    H_proto        AUC natural=0.9913 shuffled=0.5458 drop=+0.4456
+    H_pkt_len      AUC natural=0.9958 shuffled=0.5683 drop=+0.4275
+    H_iat          AUC natural=0.9506 shuffled=0.5154 drop=+0.4352
+    H_tcp_flags    AUC natural=0.9461 shuffled=0.5008 drop=+0.4453
+    H_src_port     AUC natural=0.9873 shuffled=0.5137 drop=+0.4735
+  [entropy recomputed on shuffled arrival order] d=88 acc=0.999971 F1=0.999155 AUC=0.9999999894566809 FPR=0.0 FNR=2.9026162872354173e-05
+  [CIC-only (80)] d=80 acc=0.997565 F1=0.978713 AUC=0.999920659098807 FPR=9.858044164037855e-05 FNR=0.0025028515312292823
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E5_leakage_audit.json

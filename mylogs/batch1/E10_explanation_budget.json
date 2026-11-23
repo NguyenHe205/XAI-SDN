@@ -1,0 +1,386 @@
+{
+  "_provenance": {
+    "hardware": {
+      "cpu_name": "13th Gen Intel(R) Core(TM) i9-13900H",
+      "cpu_manufacturer": "GenuineIntel",
+      "cpu_cores": 14,
+      "cpu_logical": 20,
+      "cpu_max_clock_mhz": 2600,
+      "cpu_l2_cache_kb": 11776,
+      "cpu_l3_cache_kb": 24576,
+      "ram_total_bytes": 51150704640,
+      "ram_total_gb": 47.64,
+      "os_caption": "Microsoft Windows 11 Pro",
+      "os_version": "10.0.26120",
+      "os_build": "26120",
+      "os_arch": "64-bit",
+      "gpus": [
+        "Intel(R) Iris(R) Xe Graphics",
+        "NVIDIA GeForce RTX 4060 Laptop GPU"
+      ],
+      "machine_model": "Zenbook UX6404VV_UX6404VV"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": null,
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-26T14:38:37"
+  },
+  "experiment": "E10",
+  "objective": "explanation trigger policy and budgeted SHAP throughput",
+  "trigger_definition": "explain(f) = 1 iff predicted label is DDoS AND score >= tau AND the explanation budget admits the alert",
+  "tau": 0.7,
+  "stream": {
+    "n_flows": 60000,
+    "source_range": [
+      2604345,
+      2664345
+    ],
+    "attack_prevalence": 0.9999833333333333
+  },
+  "stage_costs": {
+    "inference_ms_per_flow": 0.040686,
+    "inference_flows_per_s": 24578.6,
+    "shap_ms_per_explanation": 1.8765,
+    "shap_explanations_per_s": 532.9,
+    "n_alerts": 59998,
+    "alert_rate": 0.999967,
+    "shap_probe_n": 2000
+  },
+  "P0_always": {
+    "policy": "P0 always",
+    "explained": 59998,
+    "coverage_of_alerts": 1.0,
+    "sustained_flows_per_s": 521.6,
+    "modelled_seconds": 115.028
+  },
+  "P1_episode_dedup": [
+    {
+      "policy": "P1 episode dedup (fine, window 1.0s)",
+      "granularity": "fine",
+      "episode_window_s": 1.0,
+      "distinct_signatures": 53817,
+      "explained": 55502,
+      "inherited_by_reference": 4496,
+      "coverage_of_alerts": 0.925064,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 562.9,
+      "explanation_reduction_factor": 1.08
+    },
+    {
+      "policy": "P1 episode dedup (fine, window 5.0s)",
+      "granularity": "fine",
+      "episode_window_s": 5.0,
+      "distinct_signatures": 53817,
+      "explained": 53817,
+      "inherited_by_reference": 6181,
+      "coverage_of_alerts": 0.89698,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 580.1,
+      "explanation_reduction_factor": 1.11
+    },
+    {
+      "policy": "P1 episode dedup (medium, window 1.0s)",
+      "granularity": "medium",
+      "episode_window_s": 1.0,
+      "distinct_signatures": 38046,
+      "explained": 44452,
+      "inherited_by_reference": 15546,
+      "coverage_of_alerts": 0.740891,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 698.8,
+      "explanation_reduction_factor": 1.35
+    },
+    {
+      "policy": "P1 episode dedup (medium, window 5.0s)",
+      "granularity": "medium",
+      "episode_window_s": 5.0,
+      "distinct_signatures": 38046,
+      "explained": 38046,
+      "inherited_by_reference": 21952,
+      "coverage_of_alerts": 0.634121,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 812.6,
+      "explanation_reduction_factor": 1.58
+    },
+    {
+      "policy": "P1 episode dedup (coarse, window 1.0s)",
+      "granularity": "coarse",
+      "episode_window_s": 1.0,
+      "distinct_signatures": 2,
+      "explained": 4,
+      "inherited_by_reference": 59994,
+      "coverage_of_alerts": 6.7e-05,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 24503.3,
+      "explanation_reduction_factor": 14999.5
+    },
+    {
+      "policy": "P1 episode dedup (coarse, window 5.0s)",
+      "granularity": "coarse",
+      "episode_window_s": 5.0,
+      "distinct_signatures": 2,
+      "explained": 2,
+      "inherited_by_reference": 59996,
+      "coverage_of_alerts": 3.3e-05,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 24540.9,
+      "explanation_reduction_factor": 29999.0
+    }
+  ],
+  "P2_token_bucket": [
+    {
+      "policy": "P2 token bucket (50/s)",
+      "budget_per_s": 50,
+      "explained": 122,
+      "coverage_of_alerts": 0.002033,
+      "sustained_flows_per_s": 22471.2
+    },
+    {
+      "policy": "P2 token bucket (100/s)",
+      "budget_per_s": 100,
+      "explained": 244,
+      "coverage_of_alerts": 0.004067,
+      "sustained_flows_per_s": 20696.7
+    },
+    {
+      "policy": "P2 token bucket (250/s)",
+      "budget_per_s": 250,
+      "explained": 610,
+      "coverage_of_alerts": 0.010167,
+      "sustained_flows_per_s": 16732.6
+    },
+    {
+      "policy": "P2 token bucket (500/s)",
+      "budget_per_s": 500,
+      "explained": 1220,
+      "coverage_of_alerts": 0.020334,
+      "sustained_flows_per_s": 12683.7
+    },
+    {
+      "policy": "P2 token bucket (1000/s)",
+      "budget_per_s": 1000,
+      "explained": 2441,
+      "coverage_of_alerts": 0.040685,
+      "sustained_flows_per_s": 8544.9
+    },
+    {
+      "policy": "P2 token bucket (2000/s)",
+      "budget_per_s": 2000,
+      "explained": 4882,
+      "coverage_of_alerts": 0.081369,
+      "sustained_flows_per_s": 5171.4
+    }
+  ],
+  "P3_async": [
+    {
+      "policy": "P3 async off-path (queue 128)",
+      "queue_capacity": 128,
+      "n_flows": 20000,
+      "alerts": 20000,
+      "enqueued": 9952,
+      "explained": 9952,
+      "dropped": 10048,
+      "drop_rate": 0.5024,
+      "coverage_of_alerts": 0.4976,
+      "detection_path_flows_per_s": 998.6,
+      "wall_clock_to_drain_s": 20.26
+    },
+    {
+      "policy": "P3 async off-path (queue 1024)",
+      "queue_capacity": 1024,
+      "n_flows": 20000,
+      "alerts": 20000,
+      "enqueued": 20000,
+      "explained": 20000,
+      "dropped": 0,
+      "drop_rate": 0.0,
+      "coverage_of_alerts": 1.0,
+      "detection_path_flows_per_s": 486.9,
+      "wall_clock_to_drain_s": 41.56
+    },
+    {
+      "policy": "P3 async off-path (queue 8192)",
+      "queue_capacity": 8192,
+      "n_flows": 20000,
+      "alerts": 20000,
+      "enqueued": 20000,
+      "explained": 20000,
+      "dropped": 0,
+      "drop_rate": 0.0,
+      "coverage_of_alerts": 1.0,
+      "detection_path_flows_per_s": 470.8,
+      "wall_clock_to_drain_s": 43.01
+    }
+  ],
+  "frontier": [
+    {
+      "policy": "P0 always",
+      "explained": 59998,
+      "coverage_of_alerts": 1.0,
+      "sustained_flows_per_s": 521.6,
+      "modelled_seconds": 115.028
+    },
+    {
+      "policy": "P1 episode dedup (fine, window 1.0s)",
+      "granularity": "fine",
+      "episode_window_s": 1.0,
+      "distinct_signatures": 53817,
+      "explained": 55502,
+      "inherited_by_reference": 4496,
+      "coverage_of_alerts": 0.925064,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 562.9,
+      "explanation_reduction_factor": 1.08
+    },
+    {
+      "policy": "P1 episode dedup (fine, window 5.0s)",
+      "granularity": "fine",
+      "episode_window_s": 5.0,
+      "distinct_signatures": 53817,
+      "explained": 53817,
+      "inherited_by_reference": 6181,
+      "coverage_of_alerts": 0.89698,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 580.1,
+      "explanation_reduction_factor": 1.11
+    },
+    {
+      "policy": "P1 episode dedup (medium, window 1.0s)",
+      "granularity": "medium",
+      "episode_window_s": 1.0,
+      "distinct_signatures": 38046,
+      "explained": 44452,
+      "inherited_by_reference": 15546,
+      "coverage_of_alerts": 0.740891,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 698.8,
+      "explanation_reduction_factor": 1.35
+    },
+    {
+      "policy": "P1 episode dedup (medium, window 5.0s)",
+      "granularity": "medium",
+      "episode_window_s": 5.0,
+      "distinct_signatures": 38046,
+      "explained": 38046,
+      "inherited_by_reference": 21952,
+      "coverage_of_alerts": 0.634121,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 812.6,
+      "explanation_reduction_factor": 1.58
+    },
+    {
+      "policy": "P1 episode dedup (coarse, window 1.0s)",
+      "granularity": "coarse",
+      "episode_window_s": 1.0,
+      "distinct_signatures": 2,
+      "explained": 4,
+      "inherited_by_reference": 59994,
+      "coverage_of_alerts": 6.7e-05,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 24503.3,
+      "explanation_reduction_factor": 14999.5
+    },
+    {
+      "policy": "P1 episode dedup (coarse, window 5.0s)",
+      "granularity": "coarse",
+      "episode_window_s": 5.0,
+      "distinct_signatures": 2,
+      "explained": 2,
+      "inherited_by_reference": 59996,
+      "coverage_of_alerts": 3.3e-05,
+      "audit_coverage": 1.0,
+      "audit_note": "every alert is covered either by its own explanation or by an explicit reference to its episode representative",
+      "sustained_flows_per_s": 24540.9,
+      "explanation_reduction_factor": 29999.0
+    },
+    {
+      "policy": "P2 token bucket (50/s)",
+      "budget_per_s": 50,
+      "explained": 122,
+      "coverage_of_alerts": 0.002033,
+      "sustained_flows_per_s": 22471.2
+    },
+    {
+      "policy": "P2 token bucket (100/s)",
+      "budget_per_s": 100,
+      "explained": 244,
+      "coverage_of_alerts": 0.004067,
+      "sustained_flows_per_s": 20696.7
+    },
+    {
+      "policy": "P2 token bucket (250/s)",
+      "budget_per_s": 250,
+      "explained": 610,
+      "coverage_of_alerts": 0.010167,
+      "sustained_flows_per_s": 16732.6
+    },
+    {
+      "policy": "P2 token bucket (500/s)",
+      "budget_per_s": 500,
+      "explained": 1220,
+      "coverage_of_alerts": 0.020334,
+      "sustained_flows_per_s": 12683.7
+    },
+    {
+      "policy": "P2 token bucket (1000/s)",
+      "budget_per_s": 1000,
+      "explained": 2441,
+      "coverage_of_alerts": 0.040685,
+      "sustained_flows_per_s": 8544.9
+    },
+    {
+      "policy": "P2 token bucket (2000/s)",
+      "budget_per_s": 2000,
+      "explained": 4882,
+      "coverage_of_alerts": 0.081369,
+      "sustained_flows_per_s": 5171.4
+    },
+    {
+      "policy": "P3 async off-path (queue 128)",
+      "explained": 9952,
+      "coverage_of_alerts": 0.4976,
+      "sustained_flows_per_s": 998.6
+    },
+    {
+      "policy": "P3 async off-path (queue 1024)",
+      "explained": 20000,
+      "coverage_of_alerts": 1.0,
+      "sustained_flows_per_s": 486.9
+    },
+    {
+      "policy": "P3 async off-path (queue 8192)",
+      "explained": 20000,
+      "coverage_of_alerts": 1.0,
+      "sustained_flows_per_s": 470.8
+    }
+  ],
+  "headline": {
+    "objection_confirmed": true,
+    "explanation": "At the measured attack prevalence the unbudgeted policy does explain essentially every classified flow, and the sustained rate collapses accordingly. The remedy is not a faster explainer but a trigger that distinguishes an alert from an episode: structurally identical flood flows share one explanation, and the alert record carries a reference to it, so auditability is preserved at a fraction of the cost."
+  },
+  "total_runtime_s": 203.7
+}

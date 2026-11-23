@@ -1,0 +1,56 @@
+﻿cd C:\Projects\XAI-SDN-main\XAI-SDN-main
+.\.venv\Scripts\Activate.ps1
+$env:XAISDN_DATA = "C:\xaisdn_data"
+python research\experiments\e0_baseline_reproduction.py 2>&1 | Tee-Object mylogs\E0_run1.log
+   Copy-Item research\results\E0_baseline_reproduction.json mylogs\E0_run1_result.json
+   python research\experiments\e18_temporal_structure.py 2>&1 | Tee-Object mylogs\E18_run2.log
+   python research\experiments\e16_feature_audit.py 2>&1 | Tee-Object mylogs\E16_run1.log
+   dir C:\xaisdn_data\cache
+Copy-Item research\results\E18_temporal_structure.json mylogs\E18_run2_result.json
+Copy-Item research\results\E16_feature_audit.json mylogs\E16_run1_result.json
+python -c "import lightgbm, statsmodels, xgboost, shap; print('ok')"
+python research\experiments\run_queue.py E11 E12 E13 E10 E19 --force
+mkdir mylogs\batch1
+Copy-Item research\logs\E10.log,research\logs\E11.log,research\logs\E12.log,research\logs\E13.log,research\logs\E19.log,research\logs\queue_status.json mylogs\batch1\
+Copy-Item research\results\E10*,research\results\E11*,research\results\E12*,research\results\E13*,research\results\E19* mylogs\batch1\ -Recurse
+python research\experiments\run_queue.py E17 E1 E6 --force
+pip install psutil
+python -c "import psutil, lightgbm, xgboost, statsmodels, shap; print('ok')"
+python research\experiments\run_queue.py E1 --force
+mkdir mylogs\batch2
+Copy-Item research\logs\E17.log,research\logs\E6.log,research\logs\queue_status.json mylogs\batch2\
+Copy-Item research\results\E17*,research\results\E6* mylogs\batch2\ -Recurse
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+python research\experiments\run_queue.py E1 --force
+  python research\experiments\run_queue.py E9 E14 --force
+Select-String -Path research\results\E1_baselines_cpu.json -Pattern "cpu_name|ram_total_gb|machine_model"
+Copy-Item research\logs\hardware.json mylogs\hardware_tacgia.json
+$cpu = Get-CimInstance Win32_Processor | Select-Object -First 1
+$os = Get-CimInstance Win32_OperatingSystem
+$cs = Get-CimInstance Win32_ComputerSystem
+@{ cpu_name=$cpu.Name; cpu_manufacturer=$cpu.Manufacturer; cpu_cores=$cpu.NumberOfCores; cpu_logical=$cpu.NumberOfLogicalProcessors; cpu_max_clock_mhz=$cpu.MaxClockSpeed; ram_total_bytes=$cs.TotalPhysicalMemory; ram_total_gb=[math]::Round($cs.TotalPhysicalMemory/1GB,2); os_caption=$os.Caption; os_version=$os.Version; os_build=$os.BuildNumber; os_arch=$os.OSArchitecture; gpus=@(Get-CimInstance Win32_VideoController | ForEach-Object Name); machine_model=$cs.Model } | ConvertTo-Json | Set-Content research\logs\hardware.json -Encoding utf8
+python research\experiments\run_queue.py E10 --force
+Select-String -Path research\results\E1_baselines_cpu.json -Pattern "cpu_name|ram_total_gb|machine_model"
+python research\experiments\run_queue.py E1 --force
+Select-String -Path research\results\E1_baselines_cpu.json -Pattern "cpu_name|ram_total_gb|machine_model"
+python research\experiments\run_queue.py E9 E14 --force
+Copy-Item research\logs\E1.log,research\logs\E9.log,research\logs\E14.log,research\logs\queue_status.json mylogs\batch2\ -ErrorAction SilentlyContinue
+Copy-Item research\results\E1*,research\results\E9*,research\results\E14* mylogs\batch2\ -Recurse
+python research\experiments\run_queue.py E5b E2 E20 E21 --force
+python research\experiments\run_queue.py E4 E8b E15 --force
+pip install os-ken
+python -c "import os_ken; print('os-ken da san sang!')"
+python research\experiments\run_queue.py E4 E8b --force
+python research\experiments\run_queue.py E5 --force
+python research\experiments\run_queue.py E3 --force
+Get-ChildItem research\results -Recurse -File | Where-Object LastWriteTime -lt "2026-10-25" | Select-Object Name, LastWriteTime
+Select-String -Path research\results\*.json -Pattern '"cpu_name"|"ram_total_gb"|"machine_model"|"host"' | ForEach-Object { $_.Line.Trim() } | Sort-Object -Unique
+Select-String -Path research\results\*.json -Pattern '"cpu_name"' | Group-Object { $_.Line.Trim() } | ForEach-Object { "$($_.Name)`n   " + (($_.Group.Filename | Sort-Object) -join ', ') }
+Select-String -Path research\results\*.json -Pattern '"host"' | Group-Object { $_.Line.Trim() } | ForEach-Object { "$($_.Name)`n   " + (($_.Group.Filename | Sort-Object) -join ', ') }
+   python research\experiments\run_queue.py E11 E12 E13 E19 --force
+Select-String -Path research\results\*.json -Pattern '"cpu_name"' | Group-Object { $_.Line.Trim() } | ForEach-Object { "$($_.Name)`n   " + (($_.Group.Filename | Sort-Object) -join ', ') }
+mkdir mylogs\batch3
+Copy-Item research\logs\E11.log,research\logs\E12.log,research\logs\E13.log,research\logs\E19.log,research\logs\queue_status.json mylogs\batch3\
+Get-ChildItem research\results\* -Include *.json,*.csv -File | Compress-Archive -DestinationPath mylogs\ketqua_chay_lai.zip -Force
+Get-ChildItem research\results_original\* -Include *.json,*.csv -File | Compress-Archive -DestinationPath mylogs\ketqua_tacgia.zip -Force

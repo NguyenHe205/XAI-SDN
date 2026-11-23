@@ -1,0 +1,444 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-27T08:03:44"
+  },
+  "experiment": "E5",
+  "objective": "leakage and dataset-artifact audit",
+  "suspect_auc_threshold": 0.99,
+  "protocol": {
+    "split": "temporal",
+    "cut_index": 2513556,
+    "n_train": 2513556,
+    "n_test": 1077238
+  },
+  "duplicates": {
+    "n_rows": 3590794,
+    "n_unique_feature_vectors": 3590794,
+    "n_exact_duplicate_rows": 0,
+    "duplicate_rate": 0.0,
+    "largest_duplicate_group": 1,
+    "test_rows_with_exact_train_twin": 0,
+    "test_twin_rate": 0.0,
+    "test_twin_same_label": 0,
+    "seconds": 24.4
+  },
+  "near_duplicates": {
+    "n_train_ref": 400000,
+    "n_test_probe": 50000,
+    "nn_distance": {
+      "min": 0.0018911059014499187,
+      "p1": 0.01947209382429719,
+      "median": 0.1423392817378044,
+      "p99": 587.3390911865235,
+      "max": 10944.83203125,
+      "mean": 20.068191218304886
+    },
+    "frac_nn_distance_below_1e-6": 0.0,
+    "frac_nn_distance_below_1e-3": 0.0,
+    "frac_nn_distance_below_0.01": 0.0011,
+    "frac_nn_same_label": 0.99226,
+    "seconds": 42.4
+  },
+  "leakage_suspects": {
+    "criterion": "single-feature AUC >= 0.99",
+    "n": 5,
+    "features": [
+      "H_dst_ip",
+      "H_src_ip",
+      "H_pkt_len",
+      "H_proto",
+      "H_dst_port"
+    ]
+  },
+  "n_class_disjoint_features": 0,
+  "class_disjoint_features": [],
+  "progressive_removal": {
+    "full": {
+      "tag": "full 88",
+      "n_features": 88,
+      "accuracy": 0.9975038013883655,
+      "macro_f1": 0.978180105434256,
+      "auc_roc": 0.9997345771823233,
+      "avg_precision": 0.9999920171391828,
+      "fpr": 0.0010515247108307045,
+      "fnr": 0.002538197144456566,
+      "confusion": {
+        "tn": 30400,
+        "fp": 32,
+        "fn": 2657,
+        "tp": 1044149
+      },
+      "fit_seconds": 84.0
+    },
+    "top1": {
+      "tag": "minus top-1",
+      "n_features": 87,
+      "accuracy": 0.9975205107877739,
+      "macro_f1": 0.9783182191186273,
+      "auc_roc": 0.9997916676096482,
+      "avg_precision": 0.9999937638292585,
+      "fpr": 0.001150105152471083,
+      "fnr": 0.0025181361207329725,
+      "confusion": {
+        "tn": 30397,
+        "fp": 35,
+        "fn": 2636,
+        "tp": 1044170
+      },
+      "fit_seconds": 76.0,
+      "removed": [
+        "H_dst_ip"
+      ]
+    },
+    "top3": {
+      "tag": "minus top-3",
+      "n_features": 85,
+      "accuracy": 0.9975427899869852,
+      "macro_f1": 0.9784992413260196,
+      "auc_roc": 0.9998891534203892,
+      "avg_precision": 0.999996696394855,
+      "fpr": 0.0014458464773922186,
+      "fnr": 0.0024866116548816113,
+      "confusion": {
+        "tn": 30388,
+        "fp": 44,
+        "fn": 2603,
+        "tp": 1044203
+      },
+      "fit_seconds": 80.3,
+      "removed": [
+        "H_dst_ip",
+        "H_src_ip",
+        "H_pkt_len"
+      ]
+    },
+    "top5": {
+      "tag": "minus top-5",
+      "n_features": 83,
+      "accuracy": 0.9975511446866895,
+      "macro_f1": 0.9785818417506771,
+      "auc_roc": 0.9999107355513221,
+      "avg_precision": 0.9999973354345151,
+      "fpr": 0.0008215036803364879,
+      "fnr": 0.002496164523321418,
+      "confusion": {
+        "tn": 30407,
+        "fp": 25,
+        "fn": 2613,
+        "tp": 1044193
+      },
+      "fit_seconds": 79.9,
+      "removed": [
+        "H_dst_ip",
+        "H_src_ip",
+        "H_pkt_len",
+        "H_proto",
+        "H_dst_port"
+      ]
+    },
+    "top10": {
+      "tag": "minus top-10",
+      "n_features": 78,
+      "accuracy": 0.9975260805875767,
+      "macro_f1": 0.9783728716605775,
+      "auc_roc": 0.9999013407829807,
+      "avg_precision": 0.9999970754274881,
+      "fpr": 0.0007557833859095688,
+      "fnr": 0.002523867841796856,
+      "confusion": {
+        "tn": 30409,
+        "fp": 23,
+        "fn": 2642,
+        "tp": 1044164
+      },
+      "fit_seconds": 82.2,
+      "removed": [
+        "H_dst_ip",
+        "H_src_ip",
+        "H_pkt_len",
+        "H_proto",
+        "H_dst_port",
+        "H_src_port",
+        "H_iat",
+        "H_tcp_flags",
+        "ACK_Flag_Count",
+        "Packet_Length_Std"
+      ]
+    },
+    "top20": {
+      "tag": "minus top-20",
+      "n_features": 68,
+      "accuracy": 0.997507514588234,
+      "macro_f1": 0.9782238708449185,
+      "auc_roc": 0.9997981954815595,
+      "avg_precision": 0.999993993986346,
+      "fpr": 0.0004271819137749737,
+      "fnr": 0.0025525264471162757,
+      "confusion": {
+        "tn": 30419,
+        "fp": 13,
+        "fn": 2672,
+        "tp": 1044134
+      },
+      "fit_seconds": 76.5,
+      "removed": [
+        "H_dst_ip",
+        "H_src_ip",
+        "H_pkt_len",
+        "H_proto",
+        "H_dst_port",
+        "H_src_port",
+        "H_iat",
+        "H_tcp_flags",
+        "ACK_Flag_Count",
+        "Packet_Length_Std",
+        "Packet_Length_Variance",
+        "Destination_Port",
+        "Flow_Duration",
+        "Flow_IAT_Max",
+        "Fwd_Packets_s",
+        "Flow_Packets_s",
+        "Flow_Bytes_s",
+        "Flow_IAT_Mean",
+        "Max_Packet_Length",
+        "Average_Packet_Size"
+      ]
+    },
+    "all_suspects": {
+      "tag": "minus ALL suspects",
+      "n_features": 83,
+      "accuracy": 0.9975511446866895,
+      "macro_f1": 0.9785818417506771,
+      "auc_roc": 0.9999107355513221,
+      "avg_precision": 0.9999973354345151,
+      "fpr": 0.0008215036803364879,
+      "fnr": 0.002496164523321418,
+      "confusion": {
+        "tn": 30407,
+        "fp": 25,
+        "fn": 2613,
+        "tp": 1044193
+      },
+      "fit_seconds": 82.3,
+      "removed": [
+        "H_dst_ip",
+        "H_src_ip",
+        "H_pkt_len",
+        "H_proto",
+        "H_dst_port"
+      ]
+    }
+  },
+  "bootstrap_ci_full": {
+    "n_boot": 1000,
+    "accuracy": {
+      "mean": 0.9975055113169049,
+      "lo95": 0.9974156128914873,
+      "hi95": 0.9976022243923812
+    },
+    "macro_f1": {
+      "mean": 0.9781981961286547,
+      "lo95": 0.9773991098240251,
+      "hi95": 0.9790375117178701
+    },
+    "fpr": {
+      "mean": 0.0010538731385638554,
+      "lo95": 0.0007219726247140407,
+      "hi95": 0.001453680516565566
+    },
+    "fnr": {
+      "mean": 0.0025363769173676293,
+      "lo95": 0.002439071702880638,
+      "hi95": 0.002628753678979438
+    },
+    "avg_precision": {
+      "mean": 0.9999920199020055,
+      "lo95": 0.99999155087889,
+      "hi95": 0.9999925018987575
+    }
+  },
+  "bootstrap_ci_all_suspects_removed": {
+    "n_boot": 1000,
+    "accuracy": {
+      "mean": 0.9975527339362331,
+      "lo95": 0.9974638844897785,
+      "hi95": 0.9976439978909024
+    },
+    "macro_f1": {
+      "mean": 0.9785989050620715,
+      "lo95": 0.9778173093224999,
+      "hi95": 0.9794190508737084
+    },
+    "fpr": {
+      "mean": 0.000821250151722215,
+      "lo95": 0.0005203834133478452,
+      "hi95": 0.0011552317973828367
+    },
+    "fnr": {
+      "mean": 0.002494545563446326,
+      "lo95": 0.0024005799096383233,
+      "hi95": 0.002586695094558577
+    },
+    "avg_precision": {
+      "mean": 0.9999973337905306,
+      "lo95": 0.9999970989386615,
+      "hi95": 0.9999975717167982
+    }
+  },
+  "control_label_permutation": {
+    "tag": "label permutation control",
+    "n_features": 88,
+    "accuracy": 0.9906826532298341,
+    "macro_f1": 0.4984555257903389,
+    "auc_roc": 0.5008613792269082,
+    "avg_precision": 0.9913543815442669,
+    "fpr": 0.999141170155663,
+    "fnr": 0.0006835698828473589,
+    "confusion": {
+      "tn": 8,
+      "fp": 9307,
+      "fn": 730,
+      "tp": 1067193
+    },
+    "fit_seconds": 492.6
+  },
+  "control_label_permutation_passes": true,
+  "control_temporal_shuffle": {
+    "tag": "temporal shuffle control",
+    "n_features": 88,
+    "accuracy": 0.9999656529012159,
+    "macro_f1": 0.9990027204516075,
+    "auc_roc": 0.9999999842058557,
+    "avg_precision": 0.9999999998579482,
+    "fpr": 0.0,
+    "fnr": 3.464743889877329e-05,
+    "confusion": {
+      "tn": 9338,
+      "fp": 0,
+      "fn": 37,
+      "tp": 1067863
+    },
+    "fit_seconds": 139.4
+  },
+  "control_entropy_shuffled_arrival": {
+    "per_feature_auc": {
+      "H_src_ip": {
+        "auc_natural_order": 0.9982994989336565,
+        "auc_shuffled_order": 0.5920158726084566,
+        "drop": 0.406284
+      },
+      "H_dst_ip": {
+        "auc_natural_order": 0.9984989443574709,
+        "auc_shuffled_order": 0.5928599371965424,
+        "drop": 0.405639
+      },
+      "H_dst_port": {
+        "auc_natural_order": 0.9898143724431475,
+        "auc_shuffled_order": 0.5583364142862772,
+        "drop": 0.431478
+      },
+      "H_proto": {
+        "auc_natural_order": 0.9913389462563973,
+        "auc_shuffled_order": 0.5457636686519274,
+        "drop": 0.445575
+      },
+      "H_pkt_len": {
+        "auc_natural_order": 0.9957963877306334,
+        "auc_shuffled_order": 0.5682809186270923,
+        "drop": 0.427515
+      },
+      "H_iat": {
+        "auc_natural_order": 0.9506071115434153,
+        "auc_shuffled_order": 0.5154406291653719,
+        "drop": 0.435166
+      },
+      "H_tcp_flags": {
+        "auc_natural_order": 0.9460725061361847,
+        "auc_shuffled_order": 0.5007963100778641,
+        "drop": 0.445276
+      },
+      "H_src_port": {
+        "auc_natural_order": 0.9872583480801133,
+        "auc_shuffled_order": 0.5137287883138041,
+        "drop": 0.47353
+      }
+    },
+    "model_with_shuffled_order_entropy": {
+      "tag": "entropy recomputed on shuffled arrival order",
+      "n_features": 88,
+      "accuracy": 0.9999712227010187,
+      "macro_f1": 0.9991550413596944,
+      "auc_roc": 0.9999999894566809,
+      "avg_precision": 0.9999999999061934,
+      "fpr": 0.0,
+      "fnr": 2.9026162872354173e-05,
+      "confusion": {
+        "tn": 9236,
+        "fp": 0,
+        "fn": 31,
+        "tp": 1067971
+      },
+      "fit_seconds": 129.7
+    },
+    "model_cic_features_only": {
+      "tag": "CIC-only (80)",
+      "n_features": 80,
+      "accuracy": 0.9975650691861966,
+      "macro_f1": 0.9787130616827795,
+      "auc_roc": 0.999920659098807,
+      "avg_precision": 0.9999976325302533,
+      "fpr": 9.858044164037855e-05,
+      "fnr": 0.0025028515312292823,
+      "confusion": {
+        "tn": 30429,
+        "fp": 3,
+        "fn": 2620,
+        "tp": 1044186
+      },
+      "fit_seconds": 95.1
+    },
+    "mean_auc_drop": 0.433808,
+    "seconds": 265.6,
+    "interpretation_rule": "A large mean AUC drop indicates that the window entropy features were separating the classes by temporal position in the capture rather than by attack structure, which would be a dataset artifact rather than a detection capability. A small drop indicates the opposite."
+  },
+  "temporal_vs_shuffled_gap": {
+    "accuracy": 0.00246185,
+    "macro_f1": 0.02082262,
+    "fpr": -0.00105152
+  },
+  "total_runtime_s": 1971.3
+}

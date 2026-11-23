@@ -1,0 +1,342 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-27T09:03:00"
+  },
+  "experiment": "E13",
+  "objective": "individual alert case studies",
+  "tau": 0.7,
+  "top_k": 10,
+  "population": {
+    "n_test": 1077238,
+    "n_tp": 1044149,
+    "n_fp": 32,
+    "n_fn": 2657,
+    "n_tn": 30400
+  },
+  "cases": {
+    "true_positive": {
+      "kind": "true_positive",
+      "test_index": 0,
+      "true_label": "DDoS",
+      "predicted_label": "DDoS",
+      "score": 1.0,
+      "threshold": 0.7,
+      "alerted": true,
+      "explanation_triggered": true,
+      "flow_context": {
+        "source_ip": "172.16.0.5",
+        "destination_ip": "192.168.50.4",
+        "timestamp": "2018-11-03 11:35:11.678627",
+        "dataset_label": "Syn"
+      },
+      "shap_base_value": 0.49999514432938824,
+      "shap_sum_top_k": 0.350257513379625,
+      "shap_sum_all": 0.5000048556706116,
+      "top_contributions": [
+        {
+          "feature": "H_src_ip",
+          "value": 0.0,
+          "shap_value": 0.08863207326057108
+        },
+        {
+          "feature": "H_dst_ip",
+          "value": 0.0,
+          "shap_value": 0.08058197622047907
+        },
+        {
+          "feature": "ACK_Flag_Count",
+          "value": 1.0,
+          "shap_value": 0.04622669143529921
+        },
+        {
+          "feature": "Destination_Port",
+          "value": 23001.0,
+          "shap_value": 0.029429345498593558
+        },
+        {
+          "feature": "Init_Win_bytes_forward",
+          "value": 5840.0,
+          "shap_value": 0.02773834284508271
+        },
+        {
+          "feature": "URG_Flag_Count",
+          "value": 0.0,
+          "shap_value": 0.01987873840251096
+        },
+        {
+          "feature": "Packet_Length_Variance",
+          "value": 0.0,
+          "shap_value": 0.015750538757894537
+        },
+        {
+          "feature": "Packet_Length_Std",
+          "value": 0.0,
+          "shap_value": 0.01574653137940174
+        },
+        {
+          "feature": "Flow_Bytes_s",
+          "value": 12000000.0,
+          "shap_value": 0.014822133765458451
+        },
+        {
+          "feature": "Fwd_Packets_s",
+          "value": 2000000.0,
+          "shap_value": 0.011451141814333687
+        }
+      ],
+      "operator_narrative": "The model scored this flow 1.0000 against a threshold of 0.70. The single largest contribution came from H_src_ip (value 0), which pushed the score toward the attack class by 0.08863. Evidence favouring an attack decision: H_src_ip, H_dst_ip, ACK_Flag_Count. An operator can see that the decision rests on distributional and flag-level evidence rather than on a single volumetric field, which is what makes the alert actionable rather than merely asserted."
+    },
+    "false_positive": {
+      "kind": "false_positive",
+      "test_index": 1068380,
+      "true_label": "Benign",
+      "predicted_label": "DDoS",
+      "score": 0.81,
+      "threshold": 0.7,
+      "alerted": true,
+      "explanation_triggered": true,
+      "flow_context": {
+        "source_ip": "192.168.50.4",
+        "destination_ip": "224.0.0.251",
+        "timestamp": "2018-11-03 15:45:02.609774",
+        "dataset_label": "BENIGN"
+      },
+      "shap_base_value": 0.49999514432938824,
+      "shap_sum_top_k": -0.014575722715812103,
+      "shap_sum_all": 0.31000485567061153,
+      "top_contributions": [
+        {
+          "feature": "ACK_Flag_Count",
+          "value": 0.0,
+          "shap_value": -0.10124688277580902
+        },
+        {
+          "feature": "H_src_port",
+          "value": 7.9722580909729,
+          "shap_value": 0.0524706145075119
+        },
+        {
+          "feature": "Init_Win_bytes_forward",
+          "value": -1.0,
+          "shap_value": -0.04705530951308586
+        },
+        {
+          "feature": "H_dst_ip",
+          "value": 4.4603424072265625,
+          "shap_value": -0.044240718920168946
+        },
+        {
+          "feature": "H_src_ip",
+          "value": 2.8128256797790527,
+          "shap_value": -0.04349201898781331
+        },
+        {
+          "feature": "Fwd_Packet_Length_Min",
+          "value": 141.0,
+          "shap_value": 0.03876230675002909
+        },
+        {
+          "feature": "Min_Packet_Length",
+          "value": 141.0,
+          "shap_value": 0.037827206210936326
+        },
+        {
+          "feature": "Destination_Port",
+          "value": 5353.0,
+          "shap_value": 0.033761799675750825
+        },
+        {
+          "feature": "Packet_Length_Variance",
+          "value": 0.0,
+          "shap_value": 0.03138310269374179
+        },
+        {
+          "feature": "Packet_Length_Std",
+          "value": 0.0,
+          "shap_value": 0.027254177643095116
+        }
+      ],
+      "operator_narrative": "The model scored this flow 0.8100 against a threshold of 0.70. The single largest contribution came from ACK_Flag_Count (value 0), which pushed the score away from the attack class by 0.1012. Evidence favouring an attack decision: H_src_port, Fwd_Packet_Length_Min, Min_Packet_Length. Evidence against it: ACK_Flag_Count, Init_Win_bytes_forward, H_dst_ip. This is the case that justifies per-decision explanation: the attribution shows which features misled the model, so the operator can dismiss the alert on evidence instead of on intuition, and the same attribution is the artefact a tuning decision would be based on."
+    },
+    "false_negative": {
+      "kind": "false_negative",
+      "test_index": 1072225,
+      "true_label": "DDoS",
+      "predicted_label": "Benign",
+      "score": 0.105,
+      "threshold": 0.7,
+      "alerted": false,
+      "explanation_triggered": false,
+      "flow_context": {
+        "source_ip": "192.168.50.4",
+        "destination_ip": "172.16.0.5",
+        "timestamp": "2018-11-03 16:25:01.839251",
+        "dataset_label": "Syn"
+      },
+      "shap_base_value": 0.49999514432938824,
+      "shap_sum_top_k": -0.32137266954219934,
+      "shap_sum_all": -0.3949951443293884,
+      "top_contributions": [
+        {
+          "feature": "ACK_Flag_Count",
+          "value": 0.0,
+          "shap_value": -0.084573257664961
+        },
+        {
+          "feature": "H_src_ip",
+          "value": 2.918182611465454,
+          "shap_value": -0.06453137574295467
+        },
+        {
+          "feature": "H_dst_ip",
+          "value": 4.651333332061768,
+          "shap_value": -0.057611670822492994
+        },
+        {
+          "feature": "Init_Win_bytes_forward",
+          "value": 235.0,
+          "shap_value": -0.05124079263672413
+        },
+        {
+          "feature": "URG_Flag_Count",
+          "value": 1.0,
+          "shap_value": -0.04750364788727757
+        },
+        {
+          "feature": "H_src_port",
+          "value": 8.244380950927734,
+          "shap_value": 0.037686062102940045
+        },
+        {
+          "feature": "Source_Port",
+          "value": 80.0,
+          "shap_value": -0.030490322626364294
+        },
+        {
+          "feature": "act_data_pkt_fwd",
+          "value": 0.0,
+          "shap_value": -0.023874698609652748
+        },
+        {
+          "feature": "H_proto",
+          "value": 1.0687038898468018,
+          "shap_value": 0.023850562183644227
+        },
+        {
+          "feature": "Subflow_Fwd_Bytes",
+          "value": 0.0,
+          "shap_value": -0.023083527838356203
+        }
+      ],
+      "operator_narrative": "The model scored this flow 0.1050 against a threshold of 0.70. The single largest contribution came from ACK_Flag_Count (value 0), which pushed the score away from the attack class by 0.08457. Evidence favouring an attack decision: H_src_port, H_proto. Evidence against it: ACK_Flag_Count, H_src_ip, H_dst_ip. The attribution shows which benign-looking evidence suppressed the score, which is the information needed to decide whether the threshold or the feature set is at fault."
+    },
+    "borderline": {
+      "kind": "borderline",
+      "test_index": 1076664,
+      "true_label": "DDoS",
+      "predicted_label": "DDoS",
+      "score": 0.7,
+      "threshold": 0.7,
+      "alerted": true,
+      "explanation_triggered": true,
+      "flow_context": {
+        "source_ip": "172.16.0.5",
+        "destination_ip": "192.168.50.4",
+        "timestamp": "2018-11-03 17:19:16.918021",
+        "dataset_label": "Syn"
+      },
+      "shap_base_value": 0.49999514432938824,
+      "shap_sum_top_k": -0.11270957386981983,
+      "shap_sum_all": 0.20000485567061158,
+      "top_contributions": [
+        {
+          "feature": "ACK_Flag_Count",
+          "value": 0.0,
+          "shap_value": -0.10376573423526345
+        },
+        {
+          "feature": "H_src_port",
+          "value": 7.84543514251709,
+          "shap_value": 0.05819420887356855
+        },
+        {
+          "feature": "Destination_Port",
+          "value": 53.0,
+          "shap_value": -0.05293481884591191
+        },
+        {
+          "feature": "Init_Win_bytes_forward",
+          "value": -1.0,
+          "shap_value": -0.05016042688968205
+        },
+        {
+          "feature": "H_src_ip",
+          "value": 2.6799509525299072,
+          "shap_value": -0.04657958360675176
+        },
+        {
+          "feature": "H_dst_ip",
+          "value": 4.231199741363525,
+          "shap_value": -0.043249015837254726
+        },
+        {
+          "feature": "Packet_Length_Variance",
+          "value": 0.0,
+          "shap_value": 0.0340907969811613
+        },
+        {
+          "feature": "Packet_Length_Std",
+          "value": 0.0,
+          "shap_value": 0.03273940075587834
+        },
+        {
+          "feature": "URG_Flag_Count",
+          "value": 0.0,
+          "shap_value": 0.03084985428433236
+        },
+        {
+          "feature": "H_proto",
+          "value": 1.0780293941497803,
+          "shap_value": 0.028105744650103515
+        }
+      ],
+      "operator_narrative": "The model scored this flow 0.7000 against a threshold of 0.70. The single largest contribution came from ACK_Flag_Count (value 0), which pushed the score away from the attack class by 0.1038. Evidence favouring an attack decision: H_src_port, Packet_Length_Variance, Packet_Length_Std. Evidence against it: ACK_Flag_Count, Destination_Port, Init_Win_bytes_forward. A score this close to the threshold is precisely where an unexplained decision is least defensible, and where the attribution changes an arbitrary-looking call into a reviewable one."
+    }
+  },
+  "missing_case_kinds": [],
+  "total_runtime_s": 82.8
+}

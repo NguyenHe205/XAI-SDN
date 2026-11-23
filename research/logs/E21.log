@@ -1,0 +1,29 @@
+feature sets: {'full': 88, 'cic_only': 80, 'entropy_only': 8}
+source train (600000, 88), benign 79
+  [in_distribution ] full          seed=42    F1=0.9670
+  [in_distribution ] full          seed=123   F1=0.9670
+  [in_distribution ] full          seed=456   F1=0.9670
+  [in_distribution ] cic_only      seed=42    F1=0.9885
+  [in_distribution ] cic_only      seed=123   F1=0.9885
+  [in_distribution ] cic_only      seed=456   F1=0.9885
+  [in_distribution ] entropy_only  seed=42    F1=0.4993
+  [in_distribution ] entropy_only  seed=123   F1=0.4994
+  [in_distribution ] entropy_only  seed=456   F1=0.5002
+LDAP_0311: no cache, skipped
+NetBIOS_0311: no cache, skipped
+Portmap_0311: no cache, skipped
+SYN_0112: no cache, skipped
+  [cross_dataset  ] insdn          full          F1=0.2555
+  [cross_dataset  ] insdn          cic_only      F1=0.2347
+  [cross_dataset  ] insdn          entropy_only  F1=0.8138
+  [cross_dataset  ] ids2017        full          F1=0.2869
+  [cross_dataset  ] ids2017        cic_only      F1=0.5897
+  [cross_dataset  ] ids2017        entropy_only  F1=0.3242
+
+cross_dataset: full=0.2712 cic_only=0.4122 delta=-0.1411
+
+in_distribution: full=0.9670 cic_only=0.9885 delta=-0.0215
+
+VERDICT: The entropy augmentation does not improve macro F1 under any shift measured here, nor in distribution. On the evidence in this paper the augmentation is not justified by detection performance, and its case rests only on its negligible cost. We state this rather than searching for a setting in which the sign is favourable.
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E21_entropy_under_shift.json

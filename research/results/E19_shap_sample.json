@@ -1,0 +1,120 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-27T09:04:34"
+  },
+  "experiment": "E19",
+  "objective": "per-flow TreeSHAP sample for the attribution figure",
+  "protocol": "chronological 70/30, repaired 88-dimensional feature set",
+  "n_train": 2513555,
+  "n_explained": 1500,
+  "n_explained_benign": 525,
+  "n_explained_attack": 975,
+  "benign_oversampled": true,
+  "oversampling_note": "Test flows are 2.8% benign, so a sample drawn at the natural ratio would show one class only. Benign flows are deliberately over-represented in this figure sample; no metric is computed from it, and every reported number comes from the full test partition.",
+  "shap_base_value": 0.4999946510022654,
+  "top_features": [
+    {
+      "feature": "H_src_ip",
+      "mean_abs_shap": 0.06960886989322668
+    },
+    {
+      "feature": "H_dst_ip",
+      "mean_abs_shap": 0.06690644322578983
+    },
+    {
+      "feature": "ACK_Flag_Count",
+      "mean_abs_shap": 0.06071658007287533
+    },
+    {
+      "feature": "Destination_Port",
+      "mean_abs_shap": 0.03635332055141557
+    },
+    {
+      "feature": "Init_Win_bytes_forward",
+      "mean_abs_shap": 0.03357881427859245
+    },
+    {
+      "feature": "Packet_Length_Variance",
+      "mean_abs_shap": 0.02256509617686587
+    },
+    {
+      "feature": "Packet_Length_Std",
+      "mean_abs_shap": 0.022464372623875118
+    },
+    {
+      "feature": "URG_Flag_Count",
+      "mean_abs_shap": 0.022316747758737043
+    },
+    {
+      "feature": "H_src_port",
+      "mean_abs_shap": 0.018722295838618633
+    },
+    {
+      "feature": "Source_Port",
+      "mean_abs_shap": 0.013144198489264047
+    },
+    {
+      "feature": "Flow_Bytes_s",
+      "mean_abs_shap": 0.012316659219287113
+    },
+    {
+      "feature": "Average_Packet_Size",
+      "mean_abs_shap": 0.01059544451702553
+    },
+    {
+      "feature": "Fwd_Packets_s",
+      "mean_abs_shap": 0.009604971570685567
+    },
+    {
+      "feature": "Max_Packet_Length",
+      "mean_abs_shap": 0.009022386487333998
+    },
+    {
+      "feature": "Packet_Length_Mean",
+      "mean_abs_shap": 0.00898563845288423
+    }
+  ],
+  "fit_seconds": 81.7,
+  "shap_seconds": 2.9,
+  "artifacts": [
+    "feature_names.json",
+    "feature_values.npy",
+    "shap_values.npy",
+    "y.npy"
+  ],
+  "total_runtime_s": 86.9
+}

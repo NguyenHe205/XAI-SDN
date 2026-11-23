@@ -1,0 +1,18 @@
+﻿{
+    "ram_total_gb":  15.69,
+    "os_version":  "10.0.26200",
+    "os_arch":  "64-bit",
+    "gpus":  [
+                 "NVIDIA GeForce MX570 A",
+                 "Intel(R) Graphics"
+             ],
+    "cpu_manufacturer":  "GenuineIntel",
+    "ram_total_bytes":  16849256448,
+    "cpu_logical":  12,
+    "os_caption":  "Microsoft Windows 11 Home Single Language",
+    "os_build":  "26200",
+    "machine_model":  "Inspiron 14 5440",
+    "cpu_cores":  10,
+    "cpu_max_clock_mhz":  1800,
+    "cpu_name":  "Intel(R) Core(TM) 7 150U"
+}

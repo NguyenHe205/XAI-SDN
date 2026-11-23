@@ -1,0 +1,251 @@
+{
+  "_provenance": {
+    "hardware": {
+      "ram_total_gb": 15.69,
+      "os_version": "10.0.26200",
+      "os_arch": "64-bit",
+      "gpus": [
+        "NVIDIA GeForce MX570 A",
+        "Intel(R) Graphics"
+      ],
+      "cpu_manufacturer": "GenuineIntel",
+      "ram_total_bytes": 16849256448,
+      "cpu_logical": 12,
+      "os_caption": "Microsoft Windows 11 Home Single Language",
+      "os_build": "26200",
+      "machine_model": "Inspiron 14 5440",
+      "cpu_cores": 10,
+      "cpu_max_clock_mhz": 1800,
+      "cpu_name": "Intel(R) Core(TM) 7 150U"
+    },
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "host": "DESKTOP-MNB2GFV",
+    "libraries": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "sklearn": "1.9.1",
+      "scipy": "1.18.1",
+      "shap": "0.52.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "torch": "2.14.1+cpu",
+      "matplotlib": "3.11.2",
+      "statsmodels": "0.15.0"
+    },
+    "cpu_only": true,
+    "timestamp": "2026-10-26T21:44:24"
+  },
+  "experiment": "E9",
+  "objective": "deep-learning baselines under the Protocol B splits of E1",
+  "cpu_only_guarantee": {
+    "torch_version": "2.14.1+cpu",
+    "cuda_available": false,
+    "threads": 10
+  },
+  "hyperparameters": {
+    "epochs": 8,
+    "batch": 512,
+    "lr": 0.001,
+    "sequence_length": 16,
+    "knn_k": 10,
+    "gnn_nodes": 20000,
+    "seed": 42
+  },
+  "tau": 0.7,
+  "protocol_B": {
+    "identical_to": "E1 Protocol B",
+    "train_range": [
+      2413556,
+      2513556
+    ],
+    "test_range": [
+      2513556,
+      2553556
+    ],
+    "n_train": 100000,
+    "n_test": 40000,
+    "train_benign": 31,
+    "test_benign": 1174,
+    "fallback": "a contiguous block was single-class; a stratified subsample of identical size was used, matching the E1 fallback"
+  },
+  "preprocessing": "features standardised with statistics fitted on the training block only; tree models in E1 use the raw features, as is standard",
+  "autoencoder_benign_pool": 582,
+  "results": {
+    "1D-CNN": {
+      "model": "1D-CNN",
+      "protocol": "B",
+      "status": "ok",
+      "hardware": "CPU only",
+      "exact_per_prediction_explanation": false,
+      "accuracy": 0.97935,
+      "macro_f1": 0.8174294127625903,
+      "avg_precision": 0.9907881832759329,
+      "roc_auc": 0.844766797324296,
+      "precision": 0.989136031304706,
+      "recall": 0.9895946015556586,
+      "fpr": 0.3594548551959114,
+      "fnr": 0.010405398444341421,
+      "confusion": {
+        "tn": 752,
+        "fp": 422,
+        "fn": 404,
+        "tp": 38422
+      },
+      "train_time_s": 28.46,
+      "peak_rss_gb": 1.693,
+      "batch_throughput_flows_per_s": 95942.4,
+      "single_flow_latency_ms": {
+        "p50": 0.36450001061894,
+        "p95": 0.44353000121191144,
+        "p99": 0.6228709977585821,
+        "mean": 0.3066956998954993
+      },
+      "n_parameters": 39297,
+      "score_file": "scores/E9_B_1D-CNN_score.npy",
+      "ytrue_file": "scores/E9_B_1D-CNN_ytrue.npy"
+    },
+    "LSTM": {
+      "model": "LSTM",
+      "protocol": "B",
+      "status": "ok",
+      "hardware": "CPU only",
+      "exact_per_prediction_explanation": false,
+      "accuracy": 0.9897961735650869,
+      "macro_f1": 0.9101926627625455,
+      "avg_precision": 0.9998909182001655,
+      "roc_auc": 0.9963219300171182,
+      "precision": 0.9946417991189881,
+      "recall": 0.9948468217773312,
+      "fpr": 0.17717206132879046,
+      "fnr": 0.005153178222668831,
+      "confusion": {
+        "tn": 966,
+        "fp": 208,
+        "fn": 200,
+        "tp": 38611
+      },
+      "train_time_s": 36.37,
+      "peak_rss_gb": 2.434,
+      "batch_throughput_flows_per_s": 76248.6,
+      "single_flow_latency_ms": {
+        "p50": 0.24449999909847975,
+        "p95": 0.5356400040909648,
+        "p99": 0.6251890157000161,
+        "mean": 0.3397512004012242
+      },
+      "n_parameters": 39489,
+      "score_file": "scores/E9_B_LSTM_score.npy",
+      "ytrue_file": "scores/E9_B_LSTM_ytrue.npy",
+      "note": "evaluated on windows of 16 consecutive flows, so the test set has 39,985 windows rather than 40,000 flows"
+    },
+    "Transformer": {
+      "model": "Transformer",
+      "protocol": "B",
+      "status": "ok",
+      "hardware": "CPU only",
+      "exact_per_prediction_explanation": false,
+      "accuracy": 0.9695635863448794,
+      "macro_f1": 0.8150052477357954,
+      "avg_precision": 0.9997162945184165,
+      "roc_auc": 0.9905553743456967,
+      "precision": 0.9983033773394836,
+      "recall": 0.9702919275463142,
+      "fpr": 0.054514480408858604,
+      "fnr": 0.02970807245368581,
+      "confusion": {
+        "tn": 1110,
+        "fp": 64,
+        "fn": 1153,
+        "tp": 37658
+      },
+      "train_time_s": 226.17,
+      "peak_rss_gb": 2.481,
+      "batch_throughput_flows_per_s": 48105.6,
+      "single_flow_latency_ms": {
+        "p50": 0.5668500089086592,
+        "p95": 0.915355012693908,
+        "p99": 1.1345540199545208,
+        "mean": 0.6283426999580115
+      },
+      "n_parameters": 73729,
+      "score_file": "scores/E9_B_Transformer_score.npy",
+      "ytrue_file": "scores/E9_B_Transformer_ytrue.npy",
+      "note": "evaluated on windows of 16 consecutive flows, so the test set has 39,985 windows rather than 40,000 flows"
+    },
+    "Autoencoder": {
+      "model": "Autoencoder",
+      "protocol": "B",
+      "status": "ok",
+      "hardware": "CPU only",
+      "exact_per_prediction_explanation": false,
+      "accuracy": 0.029375,
+      "macro_f1": 0.028548118980756616,
+      "avg_precision": 0.9657716182368121,
+      "roc_auc": 0.00731545388673759,
+      "precision": 0.5714285714285714,
+      "recall": 0.00010302374697367743,
+      "fpr": 0.002555366269165247,
+      "fnr": 0.9998969762530263,
+      "confusion": {
+        "tn": 1171,
+        "fp": 3,
+        "fn": 38822,
+        "tp": 4
+      },
+      "train_time_s": 0.05,
+      "peak_rss_gb": 2.404,
+      "batch_throughput_flows_per_s": 1219794.8,
+      "single_flow_latency_ms": {
+        "p50": 0.06369999027810991,
+        "p95": 0.16981001099338755,
+        "p99": 0.1843039772938937,
+        "mean": 0.09303029949660413
+      },
+      "n_parameters": 13544,
+      "score_file": "scores/E9_B_Autoencoder_score.npy",
+      "ytrue_file": "scores/E9_B_Autoencoder_ytrue.npy",
+      "note": " Benign training examples for this model were drawn from the entire training partition (582 flows) rather than from the Protocol B block, which holds too few to fit a reconstruction model. unsupervised: trained on benign training flows only, scored by reconstruction error normalised against the benign error distribution, so its operating point is not directly comparable to the supervised models at the same tau"
+    },
+    "GNN": {
+      "model": "GNN",
+      "protocol": "B",
+      "status": "ok",
+      "hardware": "CPU only",
+      "exact_per_prediction_explanation": false,
+      "accuracy": 0.0288,
+      "macro_f1": 0.027993779160186624,
+      "avg_precision": 0.9999210500670885,
+      "roc_auc": 0.9972864325919824,
+      "precision": null,
+      "recall": 0.0,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "confusion": {
+        "tn": 288,
+        "fp": 0,
+        "fn": 9712,
+        "tp": 0
+      },
+      "train_time_s": 104.42,
+      "graph_construction_s": 1.69,
+      "peak_rss_gb": 2.195,
+      "batch_throughput_flows_per_s": 143506.6,
+      "single_flow_latency_ms": {
+        "p50": NaN,
+        "p95": NaN,
+        "p99": NaN,
+        "mean": NaN
+      },
+      "n_parameters": 7809,
+      "validation_auc": 1.0,
+      "selected_epoch": 10,
+      "converged": true,
+      "score_file": "scores/E9_B_GNN_score.npy",
+      "ytrue_file": "scores/E9_B_GNN_ytrue.npy",
+      "note": "transductive: the model scores nodes of a graph built over a 30,000-flow subsample, so single-flow latency is undefined and it cannot be deployed per-flow without incremental graph maintenance; graph construction time is reported separately"
+    }
+  },
+  "comparability_statement": "Every model here shares the Protocol B splits, the CPU, the thread budget and the metric definitions used for the classical baselines in E1, so the two result sets may be read together. Three caveats are attached to individual rows rather than buried: the sequence models are evaluated on windows rather than single flows, the autoencoder is unsupervised and its operating point is set differently, and the graph model is transductive and has no meaningful single-flow latency.",
+  "total_runtime_s": 410.2
+}

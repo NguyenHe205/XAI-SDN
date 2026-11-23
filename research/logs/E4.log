@@ -1,0 +1,47 @@
+Encountered an error while parsing OpenFlow packet from switch. This implies the switch sent a malformed OpenFlow packet. version 0x04 msg_type 13 msg_len 40 xid 11 buf 0x04 0x0d 0x00 0x28 0x00 0x00 0x00 0x0b 0xff 0xff 0xff 0xff 0x00 0x00 0x00 0x01 0x00 0x10 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x10 0xff 0xff 0xff 0xfa 0xff 0xe5 0x00 0x00 0x00 0x00 0x00 0x00
+Traceback (most recent call last):
+  File "C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\os_ken\ofproto\ofproto_parser.py", line 61, in msg
+    msg = msg_parser(datapath, version, msg_type, msg_len, xid, buf)
+  File "C:\Projects\XAI-SDN-main\XAI-SDN-main\.venv\Lib\site-packages\os_ken\ofproto\ofproto_v1_3_parser.py", line 93, in msg_parser
+    return parser(datapath, version, msg_type, msg_len, xid, buf)
+TypeError: 'NoneType' object is not callable
+protocol conformance: {
+  "OFPT_HELLO": "OFPHello",
+  "OFPT_FEATURES_REPLY": "OFPSwitchFeatures",
+  "OFPT_PACKET_IN": "OFPPacketIn",
+  "OFPT_FLOW_MOD": "OFPFlowMod",
+  "OFPT_PACKET_OUT": "header-valid(type=13)",
+  "OFPT_ECHO_REPLY": "OFPEchoReply"
+}
+model 0.2 MB, loads in 0.17s
+
+E4: fixed offered load
+  session: detection_only at 3000/s
+    agent: handshake=True sent=2,114 of 40,000 achieved=14/s
+    CPU mean=103.8% max=133.6%  RSS max=0.18 GB
+    decide p50=65.5983 ms p99=140.0236 ms  RTT p50=67.8618 ms
+  session: with_explanations at 3000/s
+    agent: handshake=True sent=2,221 of 40,000 achieved=15/s
+    CPU mean=104.0% max=136.4%  RSS max=0.24 GB
+    decide p50=63.9782 ms p99=126.4882 ms  RTT p50=66.7863 ms
+  QoS: background p95 RTT 114.948 ms -> 112.404 ms
+
+E7: offered-rate sweep
+  rate 500/s
+    achieved 27/s (5% of offered), RTT p99=77.798 ms, CPU 94%
+  rate 1000/s
+    achieved 23/s (2% of offered), RTT p99=91.190 ms, CPU 91%
+  rate 2000/s
+    achieved 24/s (1% of offered), RTT p99=85.621 ms, CPU 93%
+  rate 4000/s
+    achieved 30/s (1% of offered), RTT p99=80.142 ms, CPU 92%
+  rate 8000/s
+    achieved 39/s (0% of offered), RTT p99=58.165 ms, CPU 95%
+  rate 16000/s
+    achieved 41/s (0% of offered), RTT p99=51.298 ms, CPU 95%
+  rate 32000/s
+    achieved 40/s (0% of offered), RTT p99=50.465 ms, CPU 95%
+
+Across every session measured here a single controller instance on this hardware absorbed between 14 and 41 packet_in events per second end to end, including classification and rule installation. The spread is a property of the session configuration, not of the offered rate: the sweep sessions run 45 s with no background traffic and the fixed-load sessions run 150 s with it, and the sweep is saturated at every offered rate tested, so it bounds goodput rather than locating the knee. The 60,606 flows/s figure in an offline measurement was an offline feature-and-inference rate measured without any control channel, and it is not an ingest rate; it is two to three orders of magnitude above anything measured here. Reaching that order of magnitude at the control plane requires the flows not to arrive as individual table-miss events: switch-side aggregation, packet_in rate limiting and sampled export are the mechanisms, and their cost is quantified in the flow-table analysis of E8b.
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E4_controller_testbed.json

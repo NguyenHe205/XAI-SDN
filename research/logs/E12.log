@@ -1,0 +1,15 @@
+{
+  "n_train": 2154476,
+  "n_validation": 359080,
+  "n_test": 1077238,
+  "train_benign": 522,
+  "validation_benign": 60,
+  "test_benign": 30432
+}
+fitting on the training partition...
+  validation AP=1.000000  ROC-AUC=1.000000 prevalence=0.9998
+  tau(max-F1 grid)=0.15  tau(max-F1 fine)=0.9500  tau(precision>=0.999)=0.0
+  TEST @tau*=0.9500: precision=1.000000 recall=0.994868 F1=0.997427 false_alerts=0 missed=5,372
+  TEST AP=0.999990 ROC-AUC=0.999668
+
+Wrote C:\Projects\XAI-SDN-main\XAI-SDN-main\research\results\E12_pr_threshold.json
